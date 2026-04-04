@@ -15,7 +15,9 @@
 
 # next.js
 /.next/
-/out/
+
+# gh-pages 分支的构建产物需要提交
+# /out/  # 已禁用：由 CI/CD 部署
 
 # production
 /build
