@@ -1,0 +1,42 @@
+# Build static export and push only /out contents to gh-pages branch root
+# so https://<user>.github.io/daosoon-website-v2/ serves the site (not README).
+
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build static site (with /daosoon-website-v2 basePath)
+        run: npm run build:gh-pages
+        env:
+          GITHUB_PAGES: "true"
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: out
+          clean: true
+          force: false
