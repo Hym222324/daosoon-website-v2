@@ -31,6 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
+      <head>
+        {/* GitHub Pages / 浏览器易缓存根 HTML；提示客户端每次拉取最新文档 */}
+        <meta
+          httpEquiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate, max-age=0"
+        />
+        <meta httpEquiv="Pragma" content="no-cache" />
+      </head>
       <body
         className={`${notoSansSC.variable} ${inter.variable} min-h-full flex flex-col`}
       >
