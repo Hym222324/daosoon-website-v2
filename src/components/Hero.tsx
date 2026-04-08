@@ -1,20 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import TechHeroBackdrop from "@/components/home/TechHeroBackdrop";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1A1A1A] pt-20">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] via-[#1E88E5]/20 to-[#9C27B0]/20"></div>
-      <div className="absolute inset-0 opacity-30">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 50%, rgba(30,136,229,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(156,39,176,0.4) 0%, transparent 50%)",
-          }}
-        ></div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d1117] pt-20">
+      <TechHeroBackdrop />
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6 pt-24 pb-16">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           端到端供应链{" "}

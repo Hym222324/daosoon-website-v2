@@ -97,3 +97,229 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* --- Homepage hero: tech animated backdrop --- */
+.tech-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.tech-hero-base {
+  position: absolute;
+  inset: 0;
+  background: #0d1117;
+}
+
+.tech-hero-gradient-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 85% 55% at 15% 35%, rgba(30, 136, 229, 0.28), transparent 52%),
+    radial-gradient(ellipse 70% 45% at 85% 65%, rgba(156, 39, 176, 0.24), transparent 48%),
+    radial-gradient(ellipse 55% 40% at 50% 95%, rgba(30, 136, 229, 0.14), transparent 42%),
+    linear-gradient(165deg, #121820 0%, #0d1117 45%, #151922 100%);
+  animation: tech-mesh-breathe 14s ease-in-out infinite alternate;
+}
+
+@keyframes tech-mesh-breathe {
+  0% {
+    opacity: 0.92;
+    filter: saturate(1);
+  }
+  100% {
+    opacity: 1;
+    filter: saturate(1.12);
+  }
+}
+
+.tech-hero-grid-wrap {
+  position: absolute;
+  inset: 0;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, black 20%, transparent 72%);
+}
+
+.tech-hero-grid-lines {
+  position: absolute;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  background-image:
+    linear-gradient(rgba(30, 136, 229, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 136, 229, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: tech-grid-pan 28s linear infinite;
+  opacity: 0.55;
+}
+
+@keyframes tech-grid-pan {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-56px, -56px);
+  }
+}
+
+.tech-hero-scan-line {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  top: -20%;
+  height: 55%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(30, 136, 229, 0.04) 42%,
+    rgba(30, 136, 229, 0.2) 50%,
+    rgba(156, 39, 176, 0.1) 54%,
+    transparent 65%
+  );
+  animation: tech-scan-sweep 11s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes tech-scan-sweep {
+  0%,
+  100% {
+    transform: translateY(-8%);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(95%);
+    opacity: 0.85;
+  }
+}
+
+.tech-hero-nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.tech-hero-node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(100, 200, 255, 0.95);
+  box-shadow:
+    0 0 14px rgba(30, 136, 229, 0.85),
+    0 0 28px rgba(30, 136, 229, 0.35);
+  animation: tech-node-drift 9s ease-in-out infinite;
+}
+
+.tech-hero-node--a {
+  left: 12%;
+  top: 28%;
+  animation-delay: 0s;
+}
+
+.tech-hero-node--b {
+  left: 28%;
+  top: 62%;
+  animation-delay: -2s;
+  background: rgba(186, 130, 255, 0.95);
+  box-shadow:
+    0 0 14px rgba(156, 39, 176, 0.75),
+    0 0 26px rgba(156, 39, 176, 0.3);
+}
+
+.tech-hero-node--c {
+  right: 18%;
+  top: 22%;
+  animation-delay: -4s;
+}
+
+.tech-hero-node--d {
+  right: 32%;
+  bottom: 30%;
+  animation-delay: -1.5s;
+  background: rgba(186, 130, 255, 0.95);
+  box-shadow:
+    0 0 14px rgba(156, 39, 176, 0.75),
+    0 0 26px rgba(156, 39, 176, 0.3);
+}
+
+.tech-hero-node--e {
+  left: 48%;
+  top: 18%;
+  animation-delay: -3s;
+}
+
+.tech-hero-node--f {
+  left: 62%;
+  bottom: 22%;
+  animation-delay: -5.5s;
+}
+
+@keyframes tech-node-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.65;
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.15);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-8px, 10px) scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.tech-hero-circuit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+
+.tech-hero-circuit-path {
+  stroke-dasharray: 12 32;
+  animation: tech-circuit-dash 22s linear infinite;
+}
+
+.tech-hero-circuit-path--delayed {
+  stroke-dasharray: 8 24;
+  animation: tech-circuit-dash 18s linear infinite reverse;
+  animation-delay: -6s;
+}
+
+@keyframes tech-circuit-dash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -880;
+  }
+}
+
+.tech-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 85% 75% at 50% 45%, transparent 0%, rgba(5, 8, 12, 0.75) 100%);
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero-gradient-mesh,
+  .tech-hero-grid-lines,
+  .tech-hero-scan-line,
+  .tech-hero-node,
+  .tech-hero-circuit-path,
+  .tech-hero-circuit-path--delayed {
+    animation: none !important;
+  }
+
+  .tech-hero-gradient-mesh {
+    opacity: 1;
+  }
+
+  .tech-hero-scan-line {
+    opacity: 0.2;
+    transform: translateY(20%);
+  }
+}
