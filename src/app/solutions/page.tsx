@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { BarChart3, Briefcase, Handshake, Target, type LucideIcon } from "lucide-react";
 
 const services = [
   {
@@ -227,18 +228,44 @@ export default function SolutionsPage() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {[
-                { icon: "🎯", title: "专业专注", desc: "专注供应协同领域，深耕行业 10 年+" },
-                { icon: "👨‍💼", title: "资深团队", desc: "平均 10 年 + 行业经验的专家队伍" },
-                { icon: "📊", title: "数据驱动", desc: "基于数据的科学决策和效果验证" },
-                { icon: "🤝", title: "陪伴式服务", desc: "全程伴随，确保项目成功落地" },
-              ].map((item, index) => (
-                <div key={index} className="text-center bg-white rounded-xl p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
-                  <div className="text-5xl mb-4">{item.icon}</div>
-                  <h3 className="font-bold text-[#1A1A1A] mb-2">{item.title}</h3>
-                  <p className="text-sm text-[#666666]">{item.desc}</p>
-                </div>
-              ))}
+              {(
+                [
+                  {
+                    Icon: Target,
+                    title: "专业专注",
+                    desc: "专注供应协同领域，深耕行业 10 年+",
+                  },
+                  {
+                    Icon: Briefcase,
+                    title: "资深团队",
+                    desc: "平均 10 年 + 行业经验的专家队伍",
+                  },
+                  {
+                    Icon: BarChart3,
+                    title: "数据驱动",
+                    desc: "基于数据的科学决策和效果验证",
+                  },
+                  {
+                    Icon: Handshake,
+                    title: "陪伴式服务",
+                    desc: "全程伴随，确保项目成功落地",
+                  },
+                ] as { Icon: LucideIcon; title: string; desc: string }[]
+              ).map((item, index) => {
+                const ItemIcon = item.Icon;
+                return (
+                  <div
+                    key={index}
+                    className="text-center bg-white rounded-xl p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                  >
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                      <ItemIcon className="h-7 w-7" strokeWidth={1.75} aria-hidden />
+                    </div>
+                    <h3 className="font-bold text-[#1A1A1A] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#666666]">{item.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -2,12 +2,25 @@
 
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import {
+  Briefcase,
+  GraduationCap,
+  UserSearch,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function TalentPage() {
-  const services = [
+  const services: {
+    title: string;
+    icon: LucideIcon;
+    description: string;
+    offerings: string[];
+    benefits: string[];
+  }[] = [
     {
       title: "供应人才培训",
-      icon: "🎓",
+      icon: GraduationCap,
       description: "系统化培训体系，提升团队专业能力",
       offerings: [
         "供应管理基础课程",
@@ -25,7 +38,7 @@ export default function TalentPage() {
     },
     {
       title: "供应人才招聘",
-      icon: "👔",
+      icon: UserSearch,
       description: "精准匹配供应专业人才，快速组建团队",
       offerings: [
         "供应总监招聘",
@@ -43,7 +56,7 @@ export default function TalentPage() {
     },
     {
       title: "人才灵活用工",
-      icon: "👥",
+      icon: Users,
       description: "按需调配供应专业人才，支持项目交付",
       offerings: [
         "项目顾问服务",
@@ -61,7 +74,7 @@ export default function TalentPage() {
     },
     {
       title: "数字人才转型",
-      icon: "💼",
+      icon: Briefcase,
       description: "帮助企业培养数字化供应人才",
       offerings: [
         "数字化能力评估",
@@ -130,7 +143,7 @@ export default function TalentPage() {
     <SolutionTemplate
       pageTitle="供应专业人才服务"
       pageDescription="人才培训、企业招聘、人才匹配，打造专业供应团队"
-      mainIcon="👥"
+      mainIcon={<Users className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="专业服务"
     >
       {/* Services */}
@@ -140,11 +153,13 @@ export default function TalentPage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            const SvcIcon = service.icon;
+            return (
             <div key={index} className="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 bg-[#1E88E5] rounded-lg flex items-center justify-center text-2xl text-white">
-                  {service.icon}
+                <div className="w-14 h-14 bg-[#1E88E5] rounded-lg flex items-center justify-center text-white">
+                  <SvcIcon className="h-7 w-7" strokeWidth={2} aria-hidden />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[#1A1A1A]">{service.title}</h3>
@@ -171,7 +186,8 @@ export default function TalentPage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Training Paths */}

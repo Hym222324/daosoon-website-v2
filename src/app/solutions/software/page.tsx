@@ -2,12 +2,32 @@
 
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import {
+  Bot,
+  Database,
+  LineChart,
+  Lightbulb,
+  Link2,
+  Monitor,
+  Rocket,
+  Target,
+  TrendingUp,
+  Wallet,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function SoftwarePage() {
-  const products = [
+  const products: {
+    title: string;
+    icon: LucideIcon;
+    tag: string;
+    description: string;
+    features: string[];
+    benefits: string[];
+  }[] = [
     {
       title: "供应协同平台",
-      icon: "🔗",
+      icon: Link2,
       tag: "核心产品",
       description: "一站式供应协同解决方案，打通供需双方数据与流程",
       features: [
@@ -26,7 +46,7 @@ export default function SoftwarePage() {
     },
     {
       title: "智能寻源引擎",
-      icon: "🎯",
+      icon: Target,
       tag: "AI 功能",
       description: "AI 驱动的供应商智能匹配与推荐",
       features: [
@@ -45,7 +65,7 @@ export default function SoftwarePage() {
     },
     {
       title: "供应计划 AI",
-      icon: "📊",
+      icon: LineChart,
       tag: "AI 功能",
       description: "AI 算法优化供应计划，降低库存成本",
       features: [
@@ -64,7 +84,7 @@ export default function SoftwarePage() {
     },
     {
       title: "供应商绩效平台",
-      icon: "📈",
+      icon: TrendingUp,
       tag: "管理工具",
       description: "供应商全生命周期管理与绩效评估",
       features: [
@@ -83,7 +103,7 @@ export default function SoftwarePage() {
     },
     {
       title: "供应成本优化",
-      icon: "💰",
+      icon: Wallet,
       tag: "优化工具",
       description: "智能分析采购成本构成，识别降本机会",
       features: [
@@ -102,7 +122,7 @@ export default function SoftwarePage() {
     },
     {
       title: "供应数据中台",
-      icon: "🗄️",
+      icon: Database,
       tag: "数据能力",
       description: "统一供应数据，打通信息孤岛",
       features: [
@@ -125,7 +145,7 @@ export default function SoftwarePage() {
     <SolutionTemplate
       pageTitle="供应协同 SaaS 产品"
       pageDescription="自主研发的 AI 驱动供应协同平台，开箱即用，快速见效"
-      mainIcon="💻"
+      mainIcon={<Monitor className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="新品"
     >
       {/* SaaS Benefits */}
@@ -136,17 +156,23 @@ export default function SoftwarePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <div className="bg-gradient-to-br from-[#1E88E5] to-[#1565C0] rounded-xl p-6 text-white">
-            <div className="text-4xl mb-4">🚀</div>
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
+              <Rocket className="h-7 w-7 text-white" strokeWidth={1.75} aria-hidden />
+            </div>
             <h3 className="text-xl font-bold mb-2">快速部署</h3>
             <p className="text-blue-100">无需安装，3 个月快速上线，6 周完成核心功能部署</p>
           </div>
           <div className="bg-gradient-to-br from-[#9C27B0] to-[#7B1FA2] rounded-xl p-6 text-white">
-            <div className="text-4xl mb-4">🤖</div>
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
+              <Bot className="h-7 w-7 text-white" strokeWidth={1.75} aria-hidden />
+            </div>
             <h3 className="text-xl font-bold mb-2">AI 驱动</h3>
             <p className="text-purple-100">预训练 AI 模型，开箱即用，持续优化算法</p>
           </div>
           <div className="bg-gradient-to-br from-[#FF9800] to-[#F57C00] rounded-xl p-6 text-white">
-            <div className="text-4xl mb-4">💡</div>
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
+              <Lightbulb className="h-7 w-7 text-white" strokeWidth={1.75} aria-hidden />
+            </div>
             <h3 className="text-xl font-bold mb-2">性价比高</h3>
             <p className="text-orange-100">SaaS 订阅模式，降低前期投入，ROI 实现周期 6 个月</p>
           </div>
@@ -158,11 +184,15 @@ export default function SoftwarePage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {products.map((product, index) => (
+          {products.map((product, index) => {
+            const ProductIcon = product.icon;
+            return (
             <div key={index} className="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-shadow">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-4">
-                  <div className="text-4xl">{product.icon}</div>
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                    <ProductIcon className="h-7 w-7" strokeWidth={1.75} aria-hidden />
+                  </div>
                   <div>
                     <h3 className="text-xl font-bold text-[#1A1A1A]">
                       {product.title}
@@ -202,7 +232,8 @@ export default function SoftwarePage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

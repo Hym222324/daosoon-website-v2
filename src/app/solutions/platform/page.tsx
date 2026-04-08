@@ -2,12 +2,28 @@
 
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import {
+  Building2,
+  Database,
+  Globe,
+  Handshake,
+  Link2,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function PlatformPage() {
-  const platformServices = [
+  const platformServices: {
+    title: string;
+    icon: LucideIcon;
+    color: string;
+    description: string;
+    features: string[];
+    benefits: string[];
+  }[] = [
     {
       title: "专属定制服务",
-      icon: "⚡",
+      icon: Zap,
       color: "from-[#9C27B0] to-[#7B1FA2]",
       description: "基于企业需求的定制化平台开发",
       features: [
@@ -26,7 +42,7 @@ export default function PlatformPage() {
     },
     {
       title: "系统对接服务",
-      icon: "🔗",
+      icon: Link2,
       color: "from-[#1E88E5] to-[#1565C0]",
       description: "与企业现有系统无缝集成",
       features: [
@@ -45,7 +61,7 @@ export default function PlatformPage() {
     },
     {
       title: "协同网络搭建",
-      icon: "🌐",
+      icon: Globe,
       color: "from-[#FF9800] to-[#F57C00]",
       description: "构建端到端供应协同生态",
       features: [
@@ -64,7 +80,7 @@ export default function PlatformPage() {
     },
     {
       title: "数据中台建设",
-      icon: "🗄️",
+      icon: Database,
       color: "from-[#FF6B6B] to-[#EE5A24]",
       description: "统一供应数据，赋能智能决策",
       features: [
@@ -83,30 +99,35 @@ export default function PlatformPage() {
     },
   ];
 
-  const networkTypes = [
+  const networkTypes: {
+    type: string;
+    count: string;
+    desc: string;
+    icon: LucideIcon;
+  }[] = [
     {
       type: "供应商网络",
       count: "1000+",
       desc: "接入供应商数量",
-      icon: "🏭",
+      icon: Building2,
     },
     {
       type: "客户网络",
       count: "500+",
       desc: "协同客户数量",
-      icon: "🤝",
+      icon: Handshake,
     },
     {
       type: "伙伴网络",
       count: "200+",
       desc: "物流/金融伙伴",
-      icon: "🔗",
+      icon: Link2,
     },
     {
       type: "覆盖行业",
       count: "8+",
       desc: "制造业细分领域",
-      icon: "🏭",
+      icon: Building2,
     },
   ];
 
@@ -141,7 +162,7 @@ export default function PlatformPage() {
     <SolutionTemplate
       pageTitle="供应协同平台服务"
       pageDescription="专属定制、系统对接、协同网络，构建端到端供应协同生态"
-      mainIcon="🔗"
+      mainIcon={<Link2 className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="VIP 服务"
     >
       {/* Platform Services */}
@@ -151,11 +172,13 @@ export default function PlatformPage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {platformServices.map((service, index) => (
+          {platformServices.map((service, index) => {
+            const SvcIcon = service.icon;
+            return (
             <div key={index} className="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-xl text-white`}>
-                  {service.icon}
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-white`}>
+                  <SvcIcon className="h-6 w-6" strokeWidth={2} aria-hidden />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-[#1A1A1A]">
@@ -184,7 +207,8 @@ export default function PlatformPage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Integration Partners */}
@@ -216,14 +240,19 @@ export default function PlatformPage() {
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            {networkTypes.map((network, index) => (
+            {networkTypes.map((network, index) => {
+              const NetIcon = network.icon;
+              return (
               <div key={index} className="text-center">
-                <div className="text-5xl mb-4">{network.icon}</div>
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                  <NetIcon className="h-8 w-8" strokeWidth={1.75} aria-hidden />
+                </div>
                 <div className="text-3xl font-bold text-[#1E88E5] mb-2">{network.count}</div>
                 <div className="font-medium text-[#1A1A1A] mb-1">{network.type}</div>
                 <div className="text-sm text-gray-600">{network.desc}</div>
               </div>
-            ))}
+            );
+            })}
           </div>
 
           {/* Process */}

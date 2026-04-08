@@ -3,13 +3,21 @@
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { Database, Handshake, Settings, Users, type LucideIcon } from "lucide-react";
 import { metadata } from "./metadata";
 
 export default function ChallengesPage() {
-  const challenges = [
+  const challenges: {
+    category: string;
+    icon: LucideIcon;
+    title: string;
+    description: string;
+    painPoints: string[];
+    solutions: string[];
+  }[] = [
     {
       category: "业务协同挑战",
-      icon: "🤝",
+      icon: Handshake,
       title: "业务协同难",
       description: "跨部门、跨企业协同效率低",
       painPoints: [
@@ -27,7 +35,7 @@ export default function ChallengesPage() {
     },
     {
       category: "技术难点",
-      icon: "⚙️",
+      icon: Settings,
       title: "技术落地难",
       description: "系统集成复杂，AI 落地困难",
       painPoints: [
@@ -45,7 +53,7 @@ export default function ChallengesPage() {
     },
     {
       category: "数据孤岛",
-      icon: "🗄️",
+      icon: Database,
       title: "数据质量差",
       description: "数据分散，质量参差不齐",
       painPoints: [
@@ -63,7 +71,7 @@ export default function ChallengesPage() {
     },
     {
       category: "组织变革",
-      icon: "👥",
+      icon: Users,
       title: "组织变革难",
       description: "人员适应慢，变革阻力大",
       painPoints: [
@@ -163,7 +171,9 @@ export default function ChallengesPage() {
             </h2>
 
             <div className="space-y-6">
-              {challenges.map((challenge, index) => (
+              {challenges.map((challenge) => {
+                const ChIcon = challenge.icon;
+                return (
                 <div
                   key={challenge.category}
                   className="bg-white rounded-2xl shadow-lg overflow-hidden"
@@ -171,7 +181,9 @@ export default function ChallengesPage() {
                   <div className="flex flex-col lg:flex-row">
                     {/* Challenge Icon and Title */}
                     <div className="lg:w-48 bg-gradient-to-br from-[#1E88E5] to-[#9C27B0] text-white p-8 flex flex-col items-center justify-center text-center">
-                      <div className="text-6xl mb-4">{challenge.icon}</div>
+                      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/15">
+                        <ChIcon className="h-12 w-12 text-white" strokeWidth={1.5} aria-hidden />
+                      </div>
                       <h3 className="text-xl font-bold mb-2">{challenge.title}</h3>
                       <p className="text-sm opacity-80">{challenge.description}</p>
                     </div>
@@ -232,7 +244,8 @@ export default function ChallengesPage() {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

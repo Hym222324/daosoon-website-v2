@@ -4,6 +4,14 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useState } from "react";
+import {
+  Handshake,
+  Laptop,
+  RefreshCw,
+  Target,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import { metadata } from "./metadata";
 
 export default function AssessmentPage() {
@@ -11,12 +19,12 @@ export default function AssessmentPage() {
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
   const [showResult, setShowResult] = useState(false);
 
-  const dimensions = [
-    { id: "strategy", name: "战略", icon: "🎯" },
-    { id: "process", name: "流程", icon: "🔄" },
-    { id: "supplier", name: "供应商", icon: "🤝" },
-    { id: "technology", name: "技术", icon: "💻" },
-    { id: "organization", name: "组织", icon: "👥" },
+  const dimensions: { id: string; name: string; icon: LucideIcon }[] = [
+    { id: "strategy", name: "战略", icon: Target },
+    { id: "process", name: "流程", icon: RefreshCw },
+    { id: "supplier", name: "供应商", icon: Handshake },
+    { id: "technology", name: "技术", icon: Laptop },
+    { id: "organization", name: "组织", icon: Users },
   ];
 
   const questions = [
@@ -227,11 +235,12 @@ export default function AssessmentPage() {
                       const dimScore = Math.round(
                         (dimAnswers.reduce((a, b) => a + b, 0) / (dimAnswers.length * 5)) * 100
                       );
+                      const DimIcon = dim.icon;
                       return (
                         <div key={dim.id}>
                           <div className="flex justify-between mb-1">
                             <div className="flex items-center">
-                              <span className="text-xl mr-2">{dim.icon}</span>
+                              <DimIcon className="mr-2 h-5 w-5 text-[#1E88E5]" strokeWidth={2} aria-hidden />
                               <span className="font-medium">{dim.name}</span>
                             </div>
                             <span className="font-bold">{dimScore}分</span>
@@ -327,11 +336,20 @@ export default function AssessmentPage() {
                   <div className="text-sm text-gray-500 mb-2">
                     问题 {currentStep + 1} / {questions.length}
                   </div>
-                  <div className="text-lg text-[#1E88E5] mb-2">
-                    {dimensions.find(
-                      (d) => d.id === questions[currentStep].dimension
-                    )?.icon}
-                    {questions[currentStep].dimension}维度
+                  <div className="flex items-center justify-center gap-2 text-lg text-[#1E88E5] mb-2">
+                    {(() => {
+                      const d = dimensions.find(
+                        (x) => x.id === questions[currentStep].dimension
+                      );
+                      if (!d) return null;
+                      const StepIcon = d.icon;
+                      return (
+                        <>
+                          <StepIcon className="h-6 w-6 shrink-0" strokeWidth={2} aria-hidden />
+                          <span>{d.name}维度</span>
+                        </>
+                      );
+                    })()}
                   </div>
                   <div className="text-2xl font-bold text-[#1A1A1A]">
                     {questions[currentStep].text}

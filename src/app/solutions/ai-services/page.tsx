@@ -2,12 +2,32 @@
 
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import {
+  BarChart3,
+  Bot,
+  Brain,
+  Clock,
+  FileText,
+  Lightbulb,
+  MessageSquare,
+  Scan,
+  Target,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function AIServicesPage() {
-  const aiServices = [
+  const aiServices: {
+    title: string;
+    icon: LucideIcon;
+    color: string;
+    description: string;
+    services: string[];
+    benefits: string[];
+  }[] = [
     {
       title: "AI 供应咨询",
-      icon: "🤔",
+      icon: Lightbulb,
       color: "from-[#9C27B0] to-[#7B1FA2]",
       description: "AI 驱动的供应链战略与场景规划",
       services: [
@@ -26,7 +46,7 @@ export default function AIServicesPage() {
     },
     {
       title: "智能分析引擎",
-      icon: "📊",
+      icon: BarChart3,
       color: "from-[#1E88E5] to-[#1565C0]",
       description: "基于 AI 的供应数据智能分析",
       services: [
@@ -45,7 +65,7 @@ export default function AIServicesPage() {
     },
     {
       title: "智能寻源匹配",
-      icon: "🎯",
+      icon: Target,
       color: "from-[#FF9800] to-[#F57C00]",
       description: "AI 驱动的供应商智能匹配与推荐",
       services: [
@@ -64,7 +84,7 @@ export default function AIServicesPage() {
     },
     {
       title: "智能计划排产",
-      icon: "⏰",
+      icon: Clock,
       color: "from-[#FF6B6B] to-[#EE5A24]",
       description: "AI 优化生产计划与物料供应",
       services: [
@@ -83,7 +103,7 @@ export default function AIServicesPage() {
     },
     {
       title: "智能合同分析",
-      icon: "📄",
+      icon: FileText,
       color: "from-[#4CAF50] to-[#43A047]",
       description: "NLP 技术自动分析供应合同",
       services: [
@@ -102,7 +122,7 @@ export default function AIServicesPage() {
     },
     {
       title: "智能客服助手",
-      icon: "🤖",
+      icon: Bot,
       color: "from-[#2196F3] to-[#1976D2]",
       description: "AI 驱动的供应协同智能客服",
       services: [
@@ -121,26 +141,26 @@ export default function AIServicesPage() {
     },
   ];
 
-  const aiCapabilities = [
+  const aiCapabilities: { title: string; desc: string; icon: LucideIcon }[] = [
     {
       title: "机器学习",
       desc: "预测模型、优化算法",
-      icon: "🧠",
+      icon: Brain,
     },
     {
       title: "自然语言处理",
       desc: "合同分析、智能客服",
-      icon: "💬",
+      icon: MessageSquare,
     },
     {
       title: "计算机视觉",
       desc: "质量检测、识别",
-      icon: "👁️",
+      icon: Scan,
     },
     {
       title: "知识图谱",
       desc: "供应链关系网络",
-      icon: "🕸️",
+      icon: Workflow,
     },
   ];
 
@@ -166,7 +186,7 @@ export default function AIServicesPage() {
     <SolutionTemplate
       pageTitle="AI 应用服务"
       pageDescription="AI 咨询、智能分析、场景落地，赋能供应链数字化转型"
-      mainIcon="🤖"
+      mainIcon={<Bot className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="AI"
     >
       {/* AI Capabilities */}
@@ -176,13 +196,18 @@ export default function AIServicesPage() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {aiCapabilities.map((cap, index) => (
-            <div key={index} className="text-center p-6 bg-white rounded-xl shadow">
-              <div className="text-5xl mb-4">{cap.icon}</div>
-              <h3 className="font-bold text-[#1A1A1A] mb-2">{cap.title}</h3>
-              <p className="text-sm text-gray-600">{cap.desc}</p>
-            </div>
-          ))}
+          {aiCapabilities.map((cap, index) => {
+            const CapIcon = cap.icon;
+            return (
+              <div key={index} className="text-center p-6 bg-white rounded-xl shadow">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                  <CapIcon className="h-8 w-8" strokeWidth={1.75} aria-hidden />
+                </div>
+                <h3 className="font-bold text-[#1A1A1A] mb-2">{cap.title}</h3>
+                <p className="text-sm text-gray-600">{cap.desc}</p>
+              </div>
+            );
+          })}
         </div>
 
         {/* AI Services */}
@@ -191,11 +216,13 @@ export default function AIServicesPage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {aiServices.map((service, index) => (
+          {aiServices.map((service, index) => {
+            const SvcIcon = service.icon;
+            return (
             <div key={index} className="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-2xl text-white`}>
-                  {service.icon}
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-white`}>
+                  <SvcIcon className="h-6 w-6" strokeWidth={2} aria-hidden />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-[#1A1A1A]">
@@ -226,7 +253,8 @@ export default function AIServicesPage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import type { ReactNode } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 interface SolutionTemplateProps {
   pageTitle: string;
   pageDescription: string;
-  mainIcon: string;
+  mainIcon: ReactNode;
   badge?: string;
 }
 
@@ -55,8 +56,10 @@ export default function SolutionTemplate({
               </Link>
             </div>
 
-            <div className="flex items-center gap-4 mb-6">
-              <div className="text-6xl">{mainIcon}</div>
+            <div className="flex items-center gap-5 mb-6">
+              <div className="flex h-[5.25rem] w-[5.25rem] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1E88E5]/12 to-[#9C27B0]/12 text-[#1E88E5] [&_svg]:size-14">
+                {mainIcon}
+              </div>
               <div>
                 <h1 className="text-5xl md:text-6xl font-bold text-[#1A1A1A]">
                   {pageTitle}

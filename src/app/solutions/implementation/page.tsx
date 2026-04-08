@@ -2,12 +2,28 @@
 
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import {
+  Briefcase,
+  CalendarDays,
+  Factory,
+  Handshake,
+  Package,
+  Truck,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function ImplementationPage() {
-  const implementations = [
+  const implementations: {
+    title: string;
+    icon: LucideIcon;
+    description: string;
+    benefits: string[];
+    features: string[];
+  }[] = [
     {
       title: "APS 高级计划排产",
-      icon: "📅",
+      icon: CalendarDays,
       description: "基于约束理论的智能排产系统，优化生产计划和物料供应",
       benefits: [
         "缩短生产周期 20-40%",
@@ -24,7 +40,7 @@ export default function ImplementationPage() {
     },
     {
       title: "SRM 供应商关系管理",
-      icon: "🤝",
+      icon: Handshake,
       description: "全流程供应商协同平台，提升供应链响应速度",
       benefits: [
         "采购成本降低 15-25%",
@@ -41,7 +57,7 @@ export default function ImplementationPage() {
     },
     {
       title: "WMS 仓储管理系统",
-      icon: "📦",
+      icon: Package,
       description: "智能仓储解决方案，优化库存管理和物流效率",
       benefits: [
         "库存准确率 99%+",
@@ -58,7 +74,7 @@ export default function ImplementationPage() {
     },
     {
       title: "TMS 运输管理系统",
-      icon: "🚚",
+      icon: Truck,
       description: "智能运输调度与跟踪，优化物流配送",
       benefits: [
         "运输成本降低 10-20%",
@@ -75,7 +91,7 @@ export default function ImplementationPage() {
     },
     {
       title: "MOM 制造运营管理系统",
-      icon: "🏭",
+      icon: Factory,
       description: "生产全流程数字化管理，提升制造执行力",
       benefits: [
         "生产效率提升 15-25%",
@@ -92,7 +108,7 @@ export default function ImplementationPage() {
     },
     {
       title: "ERP 系统实施",
-      icon: "💼",
+      icon: Briefcase,
       description: "企业资源计划系统集成和优化",
       benefits: [
         "业务流程一体化",
@@ -132,7 +148,7 @@ export default function ImplementationPage() {
     <SolutionTemplate
       pageTitle="供应协同实施服务"
       pageDescription="专业 APS/ERP/MOM、WMS/TMS 实施及项目管理服务"
-      mainIcon="🔧"
+      mainIcon={<Wrench className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="专业"
     >
       {/* Process */}
@@ -169,10 +185,14 @@ export default function ImplementationPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {implementations.map((impl, index) => (
+            {implementations.map((impl, index) => {
+              const ImplIcon = impl.icon;
+              return (
               <div key={index} className="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="text-4xl">{impl.icon}</div>
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                    <ImplIcon className="h-7 w-7" strokeWidth={1.75} aria-hidden />
+                  </div>
                   <h3 className="text-xl font-bold text-[#1A1A1A]">
                     {impl.title}
                   </h3>
@@ -212,7 +232,8 @@ export default function ImplementationPage() {
                   </svg>
                 </Link>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </div>

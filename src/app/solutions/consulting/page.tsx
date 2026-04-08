@@ -3,6 +3,13 @@
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
 import { useState } from "react";
+import {
+  BarChart3,
+  ClipboardList,
+  Target,
+  UserRound,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function ConsultingPage() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -50,24 +57,28 @@ export default function ConsultingPage() {
     },
   ];
 
-  const capabilities = [
+  const capabilities: {
+    icon: LucideIcon;
+    title: string;
+    description: string;
+  }[] = [
     {
-      icon: "🎯",
+      icon: Target,
       title: "精准诊断",
       description: "500+ 项指标评估，全面识别问题",
     },
     {
-      icon: "📋",
+      icon: ClipboardList,
       title: "标准化框架",
       description: "成熟的咨询服务方法论",
     },
     {
-      icon: "👨‍💼",
+      icon: UserRound,
       title: "资深团队",
       description: "平均 10 年 + 行业经验",
     },
     {
-      icon: "📊",
+      icon: BarChart3,
       title: "数据驱动",
       description: "基于数据的科学决策",
     },
@@ -108,7 +119,9 @@ export default function ConsultingPage() {
     <SolutionTemplate
       pageTitle="供应协同咨询"
       pageDescription="业务梳理、体系建设、业务辅导，助力企业供应链数字化转型"
-      mainIcon="📋"
+      mainIcon={
+        <ClipboardList className="size-14" strokeWidth={1.65} aria-hidden />
+      }
       badge="热门"
     >
       {/* Capabilities */}
@@ -123,13 +136,18 @@ export default function ConsultingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {capabilities.map((cap, index) => (
-            <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="text-4xl mb-3">{cap.icon}</div>
-              <h3 className="font-bold text-[#1A1A1A] mb-2">{cap.title}</h3>
-              <p className="text-sm text-gray-600">{cap.description}</p>
-            </div>
-          ))}
+          {capabilities.map((cap, index) => {
+            const CapIcon = cap.icon;
+            return (
+              <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                  <CapIcon className="h-7 w-7" strokeWidth={1.75} aria-hidden />
+                </div>
+                <h3 className="font-bold text-[#1A1A1A] mb-2">{cap.title}</h3>
+                <p className="text-sm text-gray-600">{cap.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
 

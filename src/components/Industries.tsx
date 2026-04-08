@@ -1,24 +1,31 @@
 "use client";
 
 import Link from "next/link";
+import { Factory, Cog, Sprout, type LucideIcon } from "lucide-react";
 
-const industries = [
+const industries: {
+  Icon: LucideIcon;
+  title: string;
+  pain: string;
+  solution: string;
+  href: string;
+}[] = [
   {
-    icon: "🏭",
+    Icon: Factory,
     title: "离散制造",
     pain: "多品种小批量、BOM 复杂、变更频繁",
     solution: "AI 辅助需求预测 + SRM 供应商协同平台",
     href: "/discrete-manufacturing",
   },
   {
-    icon: "⚙️",
+    Icon: Cog,
     title: "流程制造",
     pain: "连续生产、配方管理、副产物多",
     solution: "MES 集成 + 供应链风险预警",
     href: "/process-manufacturing",
   },
   {
-    icon: "🌾",
+    Icon: Sprout,
     title: "农业",
     pain: "季节性、产地分散、质量标准多样",
     solution: "数字化产地仓 + 供需匹配平台",
@@ -61,16 +68,18 @@ export default function Industries() {
 
         {/* Industry Insights */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {industries.map((industry) => (
+          {industries.map(({ Icon, href, title, pain, solution }) => (
             <Link
-              key={industry.href}
-              href={industry.href}
+              key={href}
+              href={href}
               className="bg-white p-6 rounded-xl card-hover cursor-pointer"
             >
-              <div className="text-3xl mb-3">{industry.icon}</div>
-              <h3 className="font-bold text-xl mb-2">{industry.title}</h3>
-              <p className="text-[#666666] text-sm mb-3">{industry.pain}</p>
-              <p className="text-sm text-[#1E88E5]">{industry.solution}</p>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5] mb-3">
+                <Icon className="w-6 h-6" strokeWidth={2} aria-hidden />
+              </div>
+              <h3 className="font-bold text-xl mb-2">{title}</h3>
+              <p className="text-[#666666] text-sm mb-3">{pain}</p>
+              <p className="text-sm text-[#1E88E5]">{solution}</p>
             </Link>
           ))}
         </div>

@@ -1,12 +1,18 @@
 "use client";
 
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import { Cloud, Settings, TrendingUp, Wrench, type LucideIcon } from "lucide-react";
 
 export default function TechServicesPage() {
-  const pillars = [
+  const pillars: {
+    title: string;
+    icon: LucideIcon;
+    description: string;
+    items: string[];
+  }[] = [
     {
       title: "定制开发",
-      icon: "🛠️",
+      icon: Wrench,
       description:
         "围绕 SRM、协同门户、集成中间件等场景，提供贴合业务的定制化开发与迭代。",
       items: [
@@ -18,7 +24,7 @@ export default function TechServicesPage() {
     },
     {
       title: "云迁移",
-      icon: "☁️",
+      icon: Cloud,
       description:
         "将本地或异构云上的关键应用迁移至目标云环境，保障业务连续性与安全合规。",
       items: [
@@ -30,7 +36,7 @@ export default function TechServicesPage() {
     },
     {
       title: "运维与优化",
-      icon: "📈",
+      icon: TrendingUp,
       description:
         "7×24 运维值守、容量与监控、补丁与季度健康检查，持续优化系统可用性。",
       items: [
@@ -46,31 +52,36 @@ export default function TechServicesPage() {
     <SolutionTemplate
       pageTitle="技术服务"
       pageDescription="定制开发 · 云迁移 · 运维保障，让供应链数字系统真正跑稳、跑久。"
-      mainIcon="⚙️"
+      mainIcon={<Settings className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="基础"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="grid md:grid-cols-3 gap-8">
-          {pillars.map((p) => (
-            <div
-              key={p.title}
-              className="bg-white rounded-xl p-6 shadow border border-gray-100"
-            >
-              <div className="text-4xl mb-3">{p.icon}</div>
-              <h2 className="text-xl font-bold text-[#1A1A1A] mb-2">
-                {p.title}
-              </h2>
-              <p className="text-gray-600 text-sm mb-4">{p.description}</p>
-              <ul className="space-y-2 text-sm text-gray-700">
-                {p.items.map((t) => (
-                  <li key={t} className="flex gap-2">
-                    <span className="text-[#1E88E5]">•</span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {pillars.map((p) => {
+            const PillarIcon = p.icon;
+            return (
+              <div
+                key={p.title}
+                className="bg-white rounded-xl p-6 shadow border border-gray-100"
+              >
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
+                  <PillarIcon className="h-7 w-7" strokeWidth={1.75} aria-hidden />
+                </div>
+                <h2 className="text-xl font-bold text-[#1A1A1A] mb-2">
+                  {p.title}
+                </h2>
+                <p className="text-gray-600 text-sm mb-4">{p.description}</p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {p.items.map((t) => (
+                    <li key={t} className="flex gap-2">
+                      <span className="text-[#1E88E5]">•</span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
 
         <div className="bg-[#F0F4F8] rounded-xl p-8">

@@ -2,12 +2,26 @@
 
 import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
+import {
+  BarChart3,
+  Handshake,
+  Package,
+  Search,
+  ShoppingCart,
+  type LucideIcon,
+} from "lucide-react";
 
 export default function ProcurementServicesPage() {
-  const services = [
+  const services: {
+    title: string;
+    icon: LucideIcon;
+    description: string;
+    features: string[];
+    benefits: string[];
+  }[] = [
     {
       title: "供应寻源对接",
-      icon: "🔍",
+      icon: Search,
       description: "智能匹配供需双方，快速找到合适的供应资源",
       features: [
         "供应资源智能匹配",
@@ -25,7 +39,7 @@ export default function ProcurementServicesPage() {
     },
     {
       title: "供应采购服务",
-      icon: "🛒",
+      icon: ShoppingCart,
       description: "专业的供应采购执行，优化采购成本与流程",
       features: [
         "批量采购执行",
@@ -43,7 +57,7 @@ export default function ProcurementServicesPage() {
     },
     {
       title: "供应商协同执行",
-      icon: "🤝",
+      icon: Handshake,
       description: "在线协同平台，实现与供应商的高效沟通",
       features: [
         "供应商自助门户",
@@ -61,7 +75,7 @@ export default function ProcurementServicesPage() {
     },
     {
       title: "供应绩效管理",
-      icon: "📊",
+      icon: BarChart3,
       description: "供应商全生命周期管理与绩效评估",
       features: [
         "多维度绩效评估",
@@ -117,7 +131,7 @@ export default function ProcurementServicesPage() {
     <SolutionTemplate
       pageTitle="供应寻源对接服务"
       pageDescription="专业供应寻源、采购服务、供应商协同"
-      mainIcon="📦"
+      mainIcon={<Package className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="专业"
     >
       {/* Services */}
@@ -127,11 +141,13 @@ export default function ProcurementServicesPage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            const SvcIcon = service.icon;
+            return (
             <div key={index} className="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 bg-[#1E88E5] rounded-lg flex items-center justify-center text-2xl text-white">
-                  {service.icon}
+                <div className="w-14 h-14 bg-[#1E88E5] rounded-lg flex items-center justify-center text-white">
+                  <SvcIcon className="h-7 w-7" strokeWidth={2} aria-hidden />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[#1A1A1A]">
@@ -162,7 +178,8 @@ export default function ProcurementServicesPage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Process */}
