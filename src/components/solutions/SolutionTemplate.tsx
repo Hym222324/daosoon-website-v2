@@ -24,7 +24,7 @@ export default function SolutionTemplate({
     { name: "产品", href: "/solutions/software" },
     { name: "服务", href: "/solutions/tech-services" },
     { name: "AI", href: "/solutions/ai-services" },
-    { name: "成功", href: "/solutions/procurement-services" },
+    { name: "采购", href: "/solutions/procurement-services" },
     { name: "人才", href: "/solutions/talent" },
     { name: "平台", href: "/solutions/platform" },
   ];
