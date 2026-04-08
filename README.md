@@ -27,3 +27,16 @@ npm run dev
 npm run build
 npm start
 ```
+
+静态站托管在 **GitHub Pages** 时使用：
+
+```bash
+GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/daosoon-website-v2 npm run build
+```
+
+## 内容 / 资料后台
+
+- 资源列表数据：`content/resources.json`
+- 附件目录：`public/uploads/`
+- 可视化编辑（Decap CMS）线上路径：`/admin/`（完整 URL 见 `docs/ADMIN_SETUP.md`）
+- 配置与 OAuth、本地调试说明：**[docs/ADMIN_SETUP.md](./docs/ADMIN_SETUP.md)**

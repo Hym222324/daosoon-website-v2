@@ -33,6 +33,7 @@ jobs:
         run: npm run build:gh-pages
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: "/daosoon-website-v2"
 
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4

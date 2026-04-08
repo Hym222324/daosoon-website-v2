@@ -1,0 +1,51 @@
+# Decap CMS — 编辑 content/resources.json 与上传 public/uploads 文件
+# 使用说明见仓库 docs/ADMIN_SETUP.md
+#
+# 线上地址（GitHub Pages，含 basePath）：
+#   https://hym222324.github.io/daosoon-website-v2/admin/
+#
+# 生产环境需在 GitHub 创建 OAuth App，并部署 OAuth 代理（见文档），
+# 然后把 backend.base_url 改为代理地址。
+
+backend:
+  name: github
+  repo: Hym222324/daosoon-website-v2
+  branch: main
+  # 配置好 OAuth 代理后取消注释并填写，例如：https://your-oauth.vercel.app
+  # base_url: https://your-oauth.vercel.app
+  # auth_endpoint: /auth
+
+local_backend: false
+
+site_url: https://hym222324.github.io/daosoon-website-v2
+# 写入站点的路径为 /uploads/...）；Next Link 会在生产环境自动加 basePath
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: resources
+    label: 资讯与资源列表
+    format: json
+    file: content/resources.json
+    fields:
+      - label: 资源条目
+        name: items
+        widget: list
+        summary: "{{fields.title}} · {{fields.date}}"
+        fields:
+          - { label: 类型, name: type, widget: string, hint: "如：白皮书、趋势解读" }
+          - label: 类型渐变（Tailwind）
+            name: typeClass
+            widget: string
+            hint: "如 from-[#9C27B0] to-[#7B1FA2]，与现网卡片样式一致"
+          - { label: 标题, name: title, widget: string }
+          - { label: 发布日期, name: date, widget: string, hint: "YYYY-MM-DD" }
+          - { label: 详情页路径, name: href, widget: string, hint: "站内路径，如 /resources/whitepaper" }
+          - { label: 卡片行动文案, name: action, widget: string, hint: "如：阅读全文、免费下载" }
+          - label: 资料下载（可选）
+            name: downloadUrl
+            widget: string
+            required: false
+            hint: "选填。填 /uploads/文件名.pdf（在「媒体库」上传后复制路径即可）"
+          - { label: 在首页展示, name: showOnHomepage, widget: boolean, default: true }
+          - { label: 排序, name: sortOrder, widget: number, default: 0, required: false }

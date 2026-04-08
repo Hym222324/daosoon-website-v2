@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "type": "白皮书",
+      "typeClass": "from-[#9C27B0] to-[#7B1FA2]",
+      "title": "2026 供应链 AI 应用白皮书",
+      "date": "2026-03-15",
+      "href": "/resources/whitepaper",
+      "action": "免费下载（需留资）",
+      "downloadUrl": "",
+      "showOnHomepage": true,
+      "sortOrder": 1
+    },
+    {
+      "type": "趋势解读",
+      "typeClass": "from-[#1E88E5] to-[#1565C0]",
+      "title": "供应链数智化转型的四个关键阶段",
+      "date": "2026-03-20",
+      "href": "/resources/trend",
+      "action": "阅读全文",
+      "downloadUrl": "",
+      "showOnHomepage": true,
+      "sortOrder": 2
+    },
+    {
+      "type": "公开课",
+      "typeClass": "from-[#FF9800] to-[#F57C00]",
+      "title": "AI 在供应商寻源中的应用实战",
+      "date": "2026-03-25",
+      "href": "/resources/webinar",
+      "action": "观看回放（需注册）",
+      "downloadUrl": "",
+      "showOnHomepage": true,
+      "sortOrder": 3
+    },
+    {
+      "type": "论坛精选",
+      "typeClass": "from-[#666666] to-[#4A4A4A]",
+      "title": "采购成本分析模板分享",
+      "date": "2026-03-28",
+      "href": "/resources/forum",
+      "action": "查看帖子",
+      "downloadUrl": "",
+      "showOnHomepage": true,
+      "sortOrder": 4
+    }
+  ]
+}
