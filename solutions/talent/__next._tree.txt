@@ -1,5 +1,5 @@
 :HL["/daosoon-website-v2/_next/static/chunks/0t~obwh_-nh3t.css","style"]
-:HL["/daosoon-website-v2/_next/static/chunks/0ktv_wp.kayad.css","style"]
+:HL["/daosoon-website-v2/_next/static/chunks/0tj2_0l3vpy9l.css","style"]
 :HL["/daosoon-website-v2/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/daosoon-website-v2/_next/static/media/feb57b2dc8f29018-s.p.13c9k6c3vhklu.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"solutions","param":null,"prefetchHints":0,"slots":{"children":{"name":"talent","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"kcRZ7-HIeqh6IGYtsNeWv"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"solutions","param":null,"prefetchHints":0,"slots":{"children":{"name":"talent","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"N3jq99PzcMQxcH-c-qvKP"}
