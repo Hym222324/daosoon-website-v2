@@ -1,5 +1,7 @@
 "use client";
 
+import { withBasePath } from "@/lib/public-path";
+
 type DaosoonWordmarkProps = {
   theme?: "light" | "dark";
   className?: string;
@@ -19,7 +21,7 @@ export default function DaosoonWordmark({ theme = "light", className = "" }: Dao
   return (
     <div className={`${wrapperClass} ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/brand-logo.png" alt="Daosoon" className={logoClass} />
+      <img src={withBasePath("/brand-logo.png")} alt="Daosoon" className={logoClass} />
     </div>
   );
 }
