@@ -12,7 +12,6 @@ import {
   MessageSquare,
   Scan,
   Target,
-  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
@@ -143,42 +142,24 @@ export default function AIServicesPage() {
 
   const aiCapabilities: { title: string; desc: string; icon: LucideIcon }[] = [
     {
-      title: "机器学习",
-      desc: "预测模型、优化算法",
-      icon: Brain,
-    },
-    {
-      title: "自然语言处理",
-      desc: "合同分析、智能客服",
-      icon: MessageSquare,
-    },
-    {
       title: "计算机视觉",
-      desc: "质量检测、识别",
+      desc: "来料与在制品外观检测、仓储与装载识别等场景",
       icon: Scan,
     },
     {
-      title: "知识图谱",
-      desc: "供应链关系网络",
-      icon: Workflow,
-    },
-  ];
-
-  const caseStudies = [
-    {
-      title: "AI 需求预测",
-      result: "预测精度提升 25%",
-      desc: "某大型制造企业，通过 AI 需求预测模型，实现供应计划优化",
+      title: "供应链优化算法",
+      desc: "需求预测、库存与网络优化、排程与资源配置",
+      icon: BarChart3,
     },
     {
-      title: "智能寻源",
-      result: "寻源效率提升 70%",
-      desc: "某集团企业，AI 驱动的供应商匹配，大幅缩短寻源周期",
+      title: "机器学习",
+      desc: "表观规律挖掘、异常检测与质量预警",
+      icon: Brain,
     },
     {
-      title: "成本优化",
-      result: "年节省 2000 万",
-      desc: "某制造企业，AI 成本分析识别降本机会，持续优化",
+      title: "知识与语言技术",
+      desc: "合同与条款解析、知识检索与对话式助手",
+      icon: MessageSquare,
     },
   ];
 
@@ -192,7 +173,7 @@ export default function AIServicesPage() {
       {/* AI Capabilities */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-          AI 技术能力矩阵
+          AI 技术能力（计算机视觉 · 供应链优化算法等）
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
@@ -255,32 +236,6 @@ export default function AIServicesPage() {
             </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Case Studies */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-            AI 应用案例
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((caseStudy, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow">
-                <div className="text-sm text-[#1E88E5] font-medium mb-2">
-                  应用案例
-                </div>
-                <h3 className="font-bold text-[#1A1A1A] mb-4">{caseStudy.title}</h3>
-                <div className="mb-4">
-                  <div className="text-2xl font-bold text-green-600 mb-1">
-                    {caseStudy.result}
-                  </div>
-                  <div className="text-sm text-gray-600">{caseStudy.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

@@ -11,7 +11,8 @@ export default function Header() {
     { name: "行业洞察", href: "/insights" },
     { name: "案例", href: "/cases" },
     { name: "资源", href: "/resources" },
-    { name: "社区", href: "/community" },
+    { name: "论坛", href: "/forum" },
+    { name: "联系我们", href: "/connect" },
   ];
 
   return (

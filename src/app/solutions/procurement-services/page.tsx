@@ -129,8 +129,8 @@ export default function ProcurementServicesPage() {
 
   return (
     <SolutionTemplate
-      pageTitle="供应寻源对接服务"
-      pageDescription="专业供应寻源、采购服务、供应商协同"
+      pageTitle="采购外包服务"
+      pageDescription="寻源、执行与协同外包；预约演示或商务联系定制方案"
       mainIcon={<Package className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="专业"
     >

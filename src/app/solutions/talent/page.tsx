@@ -141,15 +141,19 @@ export default function TalentPage() {
 
   return (
     <SolutionTemplate
-      pageTitle="供应专业人才服务"
-      pageDescription="人才培训、企业招聘、人才匹配，打造专业供应团队"
+      pageTitle="专业人才库（个人 / 2C）"
+      pageDescription="面向供应链从业者的学习、认证、职位与灵活用工入口"
       mainIcon={<Users className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="专业服务"
     >
       {/* Services */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 text-sm leading-relaxed">
+          个人视角的「成长—认证—职位—社群」矩阵：先看清自身在计划、采购、物流、数字化等方向的位置，
+          再选择学习与职业下一步。企业服务与合作仍可通过商务通道单独洽谈。
+        </p>
         <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-          人才服务矩阵
+          2C 人才服务矩阵
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">

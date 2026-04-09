@@ -1,59 +1,31 @@
 "use client";
 
-import Link from "next/link";
-import TechHeroBackdrop from "@/components/home/TechHeroBackdrop";
+import HeroCarousel from "@/components/home/HeroCarousel";
 
+/** 首页首屏：参考 GEP 类 B2B — 全屏轮播 + 左侧主叙事 + 主 CTA */
 export default function HomeHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d1117] pt-20">
-      <TechHeroBackdrop />
-      <div className="relative z-10 max-w-5xl mx-auto text-center px-6 pt-24 pb-16">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          端到端供应链{" "}
-          <span className="text-[#1E88E5]">AI</span> 应用服务商
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
-          为制造及供应链企业提供
-          <span className="text-[#FF9800] font-semibold">
-            AI 驱动的协同平台
-          </span>{" "}
-          与 SRM 实施服务。降低采购成本，提升协同效率，规避供应链风险。
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Link
-            href="/connect"
-            className="bg-[#FF9800] text-white px-10 py-4 rounded-lg font-medium hover:bg-[#F57C00] transition-all whitespace-nowrap"
-          >
-            预约演示
-          </Link>
-          <Link
-            href="#services"
-            className="bg-transparent text-white px-10 py-4 rounded-lg font-medium border-2 border-white hover:bg-white hover:text-[#1A1A1A] transition-all whitespace-nowrap"
-          >
-            探索解决方案
-          </Link>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-6 text-gray-400 text-sm">
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-[#1E88E5]" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>核心团队深耕制造业信息化 20 年</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-[#1E88E5]" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>服务工程机械、汽车零部件、农业装备头部客户</span>
-          </div>
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+      <HeroCarousel />
+      {/* 左侧略压暗保证主文案对比度，右侧更多露出照片亮度 */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-[#050810]/58 via-[#050810]/18 to-[#050810]/06"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-[#050810]/42 via-transparent to-[#050810]/12"
+        aria-hidden
+      />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-44 pt-8 md:px-10 lg:flex-row lg:items-center lg:pb-40 lg:pt-4">
+        <div className="max-w-2xl text-center lg:pb-36 lg:text-left">
+          <p className="hero-font-highlight-accent mb-4 text-xs font-semibold uppercase tracking-[0.35em] md:text-sm">
+            AI · Supply Chain · Digital Transformation
+          </p>
+          <h1 className="hero-font-highlight text-balance text-3xl font-bold leading-tight tracking-tight md:text-5xl lg:text-[3.25rem] lg:leading-[1.12]">
+            供应链端到端<span className="hero-font-highlight-accent"> AI </span>
+            数智化转型
+          </h1>
         </div>
       </div>
     </section>

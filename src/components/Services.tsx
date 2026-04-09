@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 const coreServices = [
@@ -14,11 +15,17 @@ const coreServices = [
         />
       </svg>
     ),
-    title: "端到端供应链咨询",
-    subtitle: "行业洞察·体系建设·业务辅导",
-    tags: ["行业洞察力", "体系建设", "业务辅导"],
+    title: "供应协同咨询",
+    subtitle: "供应链端到端咨询 · 体系建设与优化",
+    body: "覆盖产品、客户、物流、制造、采购、履约全链路，梳理目标、流程与能力缺口。",
+    tags: ["产品", "客户", "物流", "制造", "采购", "履约"],
     gradient: "from-[#1E88E5] to-[#1565C0]",
     href: "/solutions/consulting",
+    actions: [
+      { label: "预约专家", href: "/connect" },
+      { label: "服务介绍", href: "/solutions/consulting" },
+      { label: "成功案例", href: "/cases" },
+    ],
   },
   {
     icon: (
@@ -31,11 +38,13 @@ const coreServices = [
         />
       </svg>
     ),
-    title: "端到端供应链实施",
-    subtitle: "全线软件选型与项目交付",
-    tags: ["APS", "ERP", "MOM/WMS", "TMS"],
+    title: "端到端供应链实施 · SRM",
+    subtitle: "供应链端到端实施服务",
+    body: "计划、采购、制造、仓储与物流系统的选型、集成与落地，重点包含 SRM 协同能力。",
+    tags: ["APS", "ERP", "SRM", "MOM/WMS", "TMS"],
     gradient: "from-[#FF9800] to-[#F57C00]",
     href: "/solutions/implementation",
+    actions: [],
   },
   {
     icon: (
@@ -49,14 +58,21 @@ const coreServices = [
       </svg>
     ),
     title: "自研软件产品",
-    subtitle: "自主可控的供应链 SaaS",
+    subtitle: "可落地的供应链工具与产品化能力",
+    body: "将行业方法论沉淀为可配置的产品能力，支撑协同、可视化与运营闭环。",
     tags: ["研发能力", "业务沉淀", "工具专区"],
     gradient: "from-[#9C27B0] to-[#7B1FA2]",
     href: "/solutions/software",
+    actions: [],
   },
 ];
 
-const extendedServices = [
+const extendedServices: {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  href: string;
+}[] = [
   {
     icon: (
       <svg className="w-5 h-5 text-[#666666]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,6 +85,7 @@ const extendedServices = [
       </svg>
     ),
     title: "技术服务",
+    description: "围绕供应链端到端场景的集成、架构与工程交付",
     href: "/solutions/tech-services",
   },
   {
@@ -83,6 +100,7 @@ const extendedServices = [
       </svg>
     ),
     title: "AI 应用服务",
+    description: "计算机视觉 · 供应链优化算法 · 场景化落地",
     href: "/solutions/ai-services",
   },
   {
@@ -96,7 +114,8 @@ const extendedServices = [
         />
       </svg>
     ),
-    title: "采购业务服务",
+    title: "采购外包服务",
+    description: "采购与供应执行外包，预约演示与商务对接",
     href: "/solutions/procurement-services",
   },
   {
@@ -111,6 +130,7 @@ const extendedServices = [
       </svg>
     ),
     title: "专业人才库",
+    description: "面向个人的学习、认证与职业服务（2C）",
     href: "/solutions/talent",
   },
   {
@@ -125,6 +145,7 @@ const extendedServices = [
       </svg>
     ),
     title: "商业网络平台",
+    description: "供需撮合、伙伴协同与生态运营（方案升级中）",
     href: "/solutions/platform",
   },
 ];
@@ -138,54 +159,68 @@ export default function Services() {
             我们提供什么？
           </h2>
           <p className="text-[#666666] text-lg">
-            聚焦两大核心能力：供应链数智化服务 + 落地执行
+            供应链数智化转型服务 + 采购供应链业务外包服务
           </p>
         </div>
 
-        {/* Core Services */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {coreServices.map((service) => (
-            <Link
+            <div
               key={service.href}
-              href={service.href}
-              className="bg-[#F0F4F8] p-6 rounded-xl card-hover cursor-pointer border-2 border-transparent hover:border-[#1E88E5]"
+              className="bg-[#F0F4F8] p-6 rounded-xl border-2 border-transparent hover:border-[#1E88E5] transition-colors"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-[#1E88E5]/10 to-[#9C27B0]/10 rounded-xl flex items-center justify-center mb-4">
-                {service.icon}
-              </div>
-              <h3 className="font-bold text-xl mb-2">{service.title}</h3>
-              <p className="text-[#666666] text-sm mb-3">
-                {service.subtitle}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 bg-gray-100 rounded text-xs text-[#666666]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <span className="text-[#1E88E5] font-medium">
-                了解详情 →
-              </span>
-            </Link>
+              <Link href={service.href} className="block card-hover cursor-pointer">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#1E88E5]/10 to-[#9C27B0]/10 rounded-xl flex items-center justify-center mb-4">
+                  {service.icon}
+                </div>
+                <h3 className="font-bold text-xl mb-2">{service.title}</h3>
+                <p className="text-[#666666] text-sm mb-2">{service.subtitle}</p>
+                <p className="text-[#666666] text-sm mb-3 leading-relaxed">
+                  {service.body}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 bg-gray-100 rounded text-xs text-[#666666]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-[#1E88E5] font-medium">了解详情 →</span>
+              </Link>
+              {service.actions.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2 border-t border-gray-200 pt-4">
+                  {service.actions.map((a) => (
+                    <Link
+                      key={a.href + a.label}
+                      href={a.href}
+                      className="text-xs font-medium text-[#1E88E5] hover:underline"
+                    >
+                      {a.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
-        {/* Extended Services */}
-        <div className="grid md:grid-cols-5 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {extendedServices.map((service) => (
             <Link
               key={service.href}
               href={service.href}
-              className="bg-[#F5F5F5] p-4 rounded-lg card-hover cursor-pointer text-center"
+              className="bg-[#F5F5F5] p-4 rounded-lg card-hover cursor-pointer flex flex-col gap-2 text-left"
             >
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center shrink-0">
                 {service.icon}
               </div>
-              <h4 className="font-medium text-sm">{service.title}</h4>
+              <h4 className="font-medium text-sm text-[#1A1A1A]">{service.title}</h4>
+              <p className="text-xs text-[#666666] leading-relaxed">
+                {service.description}
+              </p>
             </Link>
           ))}
         </div>
@@ -193,3 +228,4 @@ export default function Services() {
     </section>
   );
 }
+

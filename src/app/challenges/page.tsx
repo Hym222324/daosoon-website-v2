@@ -4,7 +4,6 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Database, Handshake, Settings, Users, type LucideIcon } from "lucide-react";
-import { metadata } from "./metadata";
 
 export default function ChallengesPage() {
   const challenges: {
@@ -13,114 +12,102 @@ export default function ChallengesPage() {
     title: string;
     description: string;
     painPoints: string[];
-    solutions: string[];
+    responses: string[];
   }[] = [
     {
-      category: "业务协同挑战",
+      category: "链路与协同",
       icon: Handshake,
-      title: "业务协同难",
-      description: "跨部门、跨企业协同效率低",
+      title: "端到端协同不足",
+      description: "从需求、计划到采购、制造与履约链条脱节",
       painPoints: [
-        "部门墙严重，信息孤岛普遍",
-        "供应商响应慢，协同周期长",
-        "需求变化快，响应跟不上",
-        "流程标准化程度低",
+        "计划、采购、生产、物流信息不同步，波动传导失控",
+        "跨部门、跨企业协同依赖人工，周期拉长",
+        "需求变化与供应能力缺少统一的指挥视角",
+        "流程标准与例外管理混用，执行不一致",
       ],
-      solutions: [
-        "AI 智能协同平台，打破信息壁垒",
-        "供应商自助门户，实时协同",
-        "需求预测模型，提前响应",
-        "标准化流程引擎，快速部署",
+      responses: [
+        "以端到端价值链为主线梳理主数据与关键流程接口",
+        "建设跨职能的协同机制与例会节奏，明确决策关口",
+        "用控制塔思路统一异常处理与升级路径",
+        "分阶段固化标准流程，减少临时协调成本",
       ],
     },
     {
-      category: "技术难点",
+      category: "系统与落地",
       icon: Settings,
-      title: "技术落地难",
-      description: "系统集成复杂，AI 落地困难",
+      title: "系统与现场割裂",
+      description: "多系统并存，工程落地与现场运营脱节",
       painPoints: [
-        "遗留系统多，接口复杂",
-        "数据标准不统一",
-        "AI 算法落地难",
-        "系统性能瓶颈",
+        "历史系统多、接口复杂，改造牵一发动全身",
+        "工程交付与业务准备脱节，上线后波动大",
+        "现场 OT 与 IT 数据口径不一致，难以闭环",
+        "缺少可持续运维与版本治理机制",
       ],
-      solutions: [
-        "低代码集成平台，快速对接",
-        "数据标准中间件，统一格式",
-        "预训练 AI 模型，开箱即用",
-        "云原生架构，弹性扩展",
+      responses: [
+        "先做架构分层与集成边界，控制变更半径",
+        "并行推进业务侧的变革与培训，而不是单纯上线系统",
+        "统一主数据與事件口径，沉淀可复用的集成规范",
+        "建立运维与持续改进的 ownership",
       ],
     },
     {
-      category: "数据孤岛",
+      category: "数据与治理",
       icon: Database,
-      title: "数据质量差",
-      description: "数据分散，质量参差不齐",
+      title: "数据底座薄弱",
+      description: "端到端可视需要可信、可追溯的数据",
       painPoints: [
-        "数据分散在多个系统",
-        "数据质量不一致",
-        "缺少数据治理",
-        "数据分析能力弱",
+        "数据分散在多系统与表格中，难以拼成一条链",
+        "质量与权责不清，关键指标无法对齐业务语言",
+        "缺少数据治理与生命周期管理",
+        "分析停留在报表层，难以支撑决策闭环",
       ],
-      solutions: [
-        "统一数据湖，集中管理",
-        "AI 数据清洗，自动修正",
-        "数据治理平台，规范管理",
-        "智能分析引擎，深度洞察",
+      responses: [
+        "从关键业务对象开始（物料、订单、批次、库位等）治理主数据",
+        "建立数据责任矩阵与质量检查机制",
+        "把「指标—口径—来源」写清楚，服务管理层共识",
+        "逐步把分析嵌入到流程节点，而不是事后报表",
       ],
     },
     {
-      category: "组织变革",
+      category: "组织与机制",
       icon: Users,
-      title: "组织变革难",
-      description: "人员适应慢，变革阻力大",
+      title: "组织与制度滞后",
+      description: "数智化需要与之匹配的组织能力与制度安排",
       painPoints: [
-        "员工抵触新技术",
-        "缺少数字化人才",
-        "变革管理不足",
-        "效果难以量化",
+        "角色职责与 KPI 仍按职能切分，缺少端到端 owner",
+        "制度与授权跟不上系统能力，形成新孤岛",
+        "人才结构与技能栈不匹配，运营压力上移",
+        "变革管理不足，可持续运营缺乏抓手",
       ],
-      solutions: [
-        "用户友好设计，降低门槛",
-        "专业培训体系，快速培养",
-        "变革管理方法论，稳步推进",
-        "ROI 追踪工具，效果可视化",
+      responses: [
+        "为关键链路设置端到端牵头角色与联席机制",
+        "同步修订授权、审批与考核，让流程跑得动",
+        "分岗位制定能力培养与认证路径",
+        "用小 wins 建立信心，再扩大范围",
       ],
     },
-  ];
-
-  const stats = [
-    { value: "70%", label: "供应协同项目未达预期" },
-    { value: "3 年", label: "平均数字化周期" },
-    { value: "40%", label: "AI 实施成功率" },
-    { value: "6 个月", label: "ROI 实现周期" },
   ];
 
   const faqs = [
     {
-      question: "为什么这么多供应协同项目没有达到预期效果？",
+      question: "为什么很多供应链数智化项目容易不达预期？",
       answer:
-        "根据行业调研，约 70% 的供应协同 AI 项目未能达到预期目标。主要原因是业务协同、技术落地、数据质量和组织变革四大挑战的综合影响。道生数智的 AI 协同平台通过系统性解决方案，帮助企业在 6 个月内实现 ROI。",
+        "常见原因是对「端到端」理解不足：只做了单点工具或局部采购数字化，没有同步数据、流程、组织与制度。数智化是运营体系的整体升级，需要分阶段但方向一致地推进。",
     },
     {
-      question: "小企业和大型企业适用同一个方案吗？",
+      question: "中小企业和大型企业的路径一样吗？",
       answer:
-        "不是。我们针对不同规模企业提供定制化方案。小企业可以快速部署标准 SaaS 产品，3 个月见效；大企业则需要定制化和系统集成，6-12 个月完成实施。无论规模大小，我们都有相应的最佳实践。",
+        "不一样。我们会从业务紧迫度与投入边界出发，优先保证主干流程跑通与数据可信，再逐步扩展协同深度与自动化程度，而不是套用同一套重实施模板。",
     },
     {
-      question: "AI 协同平台与传统 ERP 有什么区别？",
+      question: "和传统 ERP 项目相比，更应注意什么？",
       answer:
-        "传统 ERP 侧重于流程管理和记录，而 AI 协同平台在流程基础上增加智能决策能力。它能主动预测需求、优化供应关系、识别风险并提供改进建议。两者可以互补，AI 平台作为 ERP 的智能层。",
+        "ERP 侧重记录与流程固化；端到端数智化更强调跨系统可视、异常协同和节奏一致的运营机制。二者可以并行：ERP 打基础，协同与控制塔能力补齐链条上的空白段。",
     },
     {
-      question: "实施周期需要多久？",
+      question: "实施周期一般如何估计？",
       answer:
-        "这取决于企业规模和复杂度。标准 SaaS 产品 3-6 个月可上线；定制化实施 6-12 个月；大型跨国企业可能需要 12-18 个月。我们提供详细的实施路线图，每个阶段都有明确的目标和交付物。",
-    },
-    {
-      question: "ROI 如何计算？",
-      answer:
-        "ROI 主要来源于采购成本降低、库存周转提升、管理成本下降和错误率降低。一般企业在 6-12 个月实现 ROI，其中采购成本降低 15-25%，库存周转提升 50-100%，管理成本下降 30% 左右。",
+        "取决于现有系统现状、主数据基础与变革准备度。我们通过诊断与路线图把阶段目标讲清楚，每一阶段都有可验收的业务结果，而不是一次性大而全。",
     },
   ];
 
@@ -129,132 +116,112 @@ export default function ChallengesPage() {
       <Header />
 
       <main className="bg-gradient-to-br from-[#F0F4F8] to-[#FFFFFF]">
-        {/* Hero Section */}
-        <section className="py-20">
+      <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h1 className="text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-6">
-                供应协同 AI<span className="text-[#1E88E5]">痛点指南</span>
+                供应链数智化<span className="text-[#1E88E5]">转型挑战</span>
               </h1>
-              <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                为什么<span className="text-[#FF9800] font-bold">70%</span>的供应协同项目没有达到预期？
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
+                大量企业在推进数智化时会遇到相似的结构性问题：协同、系统、数据与组织四条线相互缠绕，
+                单一「采购」视角很难解释为什么总体效果不及预期。
               </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                从<span className="font-semibold">业务协同</span>、<span className="font-semibold">技术难点</span>、<span className="font-semibold">数据孤岛</span>到<span className="font-semibold">组织变革</span>
-                <br />
-                四大挑战深度解析 + AI 驱动的解决方案
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                以下从<strong className="font-semibold text-[#1A1A1A]">端到端供应链</strong>视角归纳共性挑战与建设重点，
+                侧重定性描述，便于对照自评；具体处置需结合企业情境。
               </p>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl p-6 shadow-lg text-center"
-                >
-                  <div className="text-4xl md:text-5xl font-bold text-[#1E88E5] mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
 
-        {/* Challenges Grid */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-              四大挑战深度解析
+              共性挑战与建设重点
             </h2>
 
             <div className="space-y-6">
               {challenges.map((challenge) => {
                 const ChIcon = challenge.icon;
                 return (
-                <div
-                  key={challenge.category}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden"
-                >
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Challenge Icon and Title */}
-                    <div className="lg:w-48 bg-gradient-to-br from-[#1E88E5] to-[#9C27B0] text-white p-8 flex flex-col items-center justify-center text-center">
-                      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/15">
-                        <ChIcon className="h-12 w-12 text-white" strokeWidth={1.5} aria-hidden />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">{challenge.title}</h3>
-                      <p className="text-sm opacity-80">{challenge.description}</p>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 p-8">
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-500 mb-3">
-                          核心痛点
-                        </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {challenge.painPoints.map((point, idx) => (
-                            <div key={idx} className="flex items-start">
-                              <svg
-                                className="w-5 h-5 text-red-500 mr-2 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M6 18L18 6M6 6l12 12"
-                                />
-                              </svg>
-                              <span className="text-gray-700">{point}</span>
-                            </div>
-                          ))}
+                  <div
+                    key={challenge.category}
+                    className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="lg:w-48 bg-gradient-to-br from-[#1E88E5] to-[#9C27B0] text-white p-8 flex flex-col items-center justify-center text-center">
+                        <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/15">
+                          <ChIcon className="h-12 w-12 text-white" strokeWidth={1.5} aria-hidden />
                         </div>
+                        <h3 className="text-xl font-bold mb-2">{challenge.title}</h3>
+                        <p className="text-sm opacity-80">{challenge.description}</p>
                       </div>
 
-                      <div>
-                        <h4 className="text-sm font-semibold text-[#1E88E5] mb-3">
-                          AI 解决方案
-                        </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {challenge.solutions.map((solution, idx) => (
-                            <div key={idx} className="flex items-start">
-                              <svg
-                                className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M5 13l4 4L19 7"
-                                />
-                              </svg>
-                              <span className="text-gray-700">{solution}</span>
-                            </div>
-                          ))}
+                      <div className="flex-1 p-8">
+                        <div className="mb-6">
+                          <h4 className="text-sm font-semibold text-gray-500 mb-3">
+                            典型痛点
+                          </h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {challenge.painPoints.map((point, idx) => (
+                              <div key={idx} className="flex items-start">
+                                <svg
+                                  className="w-5 h-5 text-red-500 mr-2 flex-shrink-0 mt-0.5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 18L18 6M6 6l12 12"
+                                  />
+                                </svg>
+                                <span className="text-gray-700">{point}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-sm font-semibold text-[#1E88E5] mb-3">
+                            建设重点（定性）
+                          </h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {challenge.responses.map((line, idx) => (
+                              <div key={idx} className="flex items-start">
+                                <svg
+                                  className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                                <span className="text-gray-700">{line}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
                 );
               })}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-              常见问题 (FAQ)
+              常见问题
             </h2>
 
             <div className="space-y-4">
@@ -266,23 +233,20 @@ export default function ChallengesPage() {
                   <h3 className="text-lg font-semibold text-[#1A1A1A] mb-3">
                     Q: {faq.question}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                 </div>
               ))}
             </div>
 
-            {/* CTA */}
             <div className="mt-12 text-center">
               <p className="text-gray-600 mb-6">
-                想了解您的企业面临哪些具体挑战？
+                希望结合贵司场景做一次轻量诊断？
               </p>
               <Link
                 href="/connect"
                 className="inline-flex items-center bg-[#FF9800] text-white px-8 py-3.5 rounded-lg font-medium hover:bg-[#F57C00] transition-all duration-300 transform hover:scale-105"
               >
-                获取痛点诊断清单
+                联系道生数智
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"

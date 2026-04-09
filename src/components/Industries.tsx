@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Factory, Cog, Sprout, type LucideIcon } from "lucide-react";
+import { Factory, Cog, Sprout, Building2, type LucideIcon } from "lucide-react";
 
 const industries: {
   Icon: LucideIcon;
@@ -9,52 +9,39 @@ const industries: {
   pain: string;
   solution: string;
   href: string;
+  caseLabel?: string;
 }[] = [
   {
     Icon: Factory,
     title: "离散制造",
     pain: "多品种小批量、BOM 复杂、变更频繁",
-    solution: "AI 辅助需求预测 + SRM 供应商协同平台",
-    href: "/discrete-manufacturing",
+    solution: "计划协同、供应商协同与履约一体的数智化方案",
+    href: "/cases",
+    caseLabel: "案例",
   },
   {
     Icon: Cog,
     title: "流程制造",
     pain: "连续生产、配方管理、副产物多",
-    solution: "MES 集成 + 供应链风险预警",
+    solution: "制造执行与供应链风险联动的可视化运营",
     href: "/process-manufacturing",
   },
   {
     Icon: Sprout,
     title: "农业",
     pain: "季节性、产地分散、质量标准多样",
-    solution: "数字化产地仓 + 供需匹配平台",
+    solution: "产地数字化与供需匹配的协同网络",
     href: "/agriculture",
   },
-];
-
-const caseStudies = [
   {
-    name: "中联重科",
-    desc: "工程机械龙头，供应商数千家",
-    result: "采购周期缩短 25%，供应商响应速度提升 40%",
-    href: "/case/zoomlion",
-  },
-  {
-    name: "蔚来汽车",
-    desc: "新能源车企，供应链复杂度高",
-    result: "寻源效率提升 50%，库存周转率提高 30%",
-    href: "/case/nio",
-  },
-  {
-    name: "农业研究院中农机",
-    desc: "农业装备研发机构，多品种小批量",
-    result: "采购成本降低 18%，供应商准入周期缩短 60%",
-    href: "/case/caas",
+    Icon: Building2,
+    title: "其他行业",
+    pain: "不同细分行业在计划、采购、制造与履约上的共性难题",
+    solution: "与我们联系，讨论定制化的行业解法与实施路径",
+    href: "/connect",
+    caseLabel: "联系我们",
   },
 ];
-
-const partners = ["SAP", "Oracle", "用友", "金蝶", "阿里云", "华为云"];
 
 export default function Industries() {
   return (
@@ -62,69 +49,34 @@ export default function Industries() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">
-            我们懂您的行业
+            行业解决方案
           </h2>
         </div>
 
-        {/* Industry Insights */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {industries.map(({ Icon, href, title, pain, solution }) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {industries.map(({ Icon, href, title, pain, solution, caseLabel }) => (
             <Link
-              key={href}
+              key={href + title}
               href={href}
-              className="bg-white p-6 rounded-xl card-hover cursor-pointer"
+              className="bg-white p-6 rounded-xl card-hover cursor-pointer flex flex-col"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5] mb-3">
                 <Icon className="w-6 h-6" strokeWidth={2} aria-hidden />
               </div>
               <h3 className="font-bold text-xl mb-2">{title}</h3>
-              <p className="text-[#666666] text-sm mb-3">{pain}</p>
-              <p className="text-sm text-[#1E88E5]">{solution}</p>
+              <p className="text-[#666666] text-sm mb-3 flex-1">{pain}</p>
+              <p className="text-sm text-[#1E88E5] mb-2">{solution}</p>
+              {caseLabel && (
+                <span className="text-xs font-medium text-[#FF9800]">{caseLabel} →</span>
+              )}
             </Link>
           ))}
         </div>
 
-        {/* Case Studies */}
-        <div className="mb-12">
-          <h3 className="font-bold text-xl mb-6 text-center text-[#1A1A1A]">
-            成功实践
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {caseStudies.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="bg-white p-6 rounded-xl card-hover cursor-pointer"
-              >
-                <h4 className="font-bold text-lg mb-2 text-[#1A1A1A]">
-                  {item.name}
-                </h4>
-                <p className="text-[#666666] text-sm mb-3">{item.desc}</p>
-                <p className="text-[#FF9800] font-semibold text-sm">
-                  {item.result}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Partners */}
-        <div className="text-center mb-8">
-          <p className="text-[#666666] mb-4">我们的实施伙伴：</p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {partners.map((partner) => (
-              <span
-                key={partner}
-                className="text-lg font-medium text-[#1A1A1A]"
-              >
-                {partner}
-                {partner !== "华为云" && " · "}
-              </span>
-            ))}
-          </div>
+        <div className="text-center">
           <Link
             href="/connect"
-            className="bg-[#FF9800] text-white px-8 py-3.5 rounded-lg font-medium hover:bg-[#F57C00] transition-all"
+            className="bg-[#FF9800] text-white px-8 py-3.5 rounded-lg font-medium hover:bg-[#F57C00] transition-all inline-block"
           >
             预约专家咨询
           </Link>

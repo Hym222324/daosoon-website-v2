@@ -101,32 +101,32 @@ export default function PlatformPage() {
 
   const networkTypes: {
     type: string;
-    count: string;
+    headline: string;
     desc: string;
     icon: LucideIcon;
   }[] = [
     {
-      type: "供应商网络",
-      count: "1000+",
-      desc: "接入供应商数量",
+      type: "可信供需",
+      headline: "画像与匹配",
+      desc: "把能力与交付记录结构化，减少信息不对称",
       icon: Building2,
     },
     {
-      type: "客户网络",
-      count: "500+",
-      desc: "协同客户数量",
+      type: "伙伴协同",
+      headline: "流程共治",
+      desc: "订单、履约与异常在统一节奏下协同",
       icon: Handshake,
     },
     {
-      type: "伙伴网络",
-      count: "200+",
-      desc: "物流/金融伙伴",
+      type: "服务封装",
+      headline: "API / 集成",
+      desc: "与企业现有 ERP、SRM、WMS 等分层对接",
       icon: Link2,
     },
     {
-      type: "覆盖行业",
-      count: "8+",
-      desc: "制造业细分领域",
+      type: "生态运营",
+      headline: "规则与治理",
+      desc: "准入、结算与信用机制可持续运营（能力建设中）",
       icon: Building2,
     },
   ];
@@ -152,16 +152,16 @@ export default function PlatformPage() {
   ];
 
   const successMetrics = [
-    { value: "40%", title: "整体效率提升" },
-    { value: "100%", title: "数据透明度" },
-    { value: "60%", title: "协同效率提升" },
-    { value: "99%+", title: "数据准确性" },
+    { value: "连接", title: "供需与伙伴" },
+    { value: "透明", title: "关键链路可视" },
+    { value: "规则化", title: "协同可治理" },
+    { value: "演进", title: "架构可扩展" },
   ];
 
   return (
     <SolutionTemplate
-      pageTitle="供应协同平台服务"
-      pageDescription="专属定制、系统对接、协同网络，构建端到端供应协同生态"
+      pageTitle="商业网络平台"
+      pageDescription="供需撮合、伙伴协同与 API 集成的一体化数字空间（能力与产品持续升级）"
       mainIcon={<Link2 className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="VIP 服务"
     >
@@ -236,7 +236,7 @@ export default function PlatformPage() {
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-            协同网络覆盖
+            平台能力方向（定性）
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
@@ -247,7 +247,7 @@ export default function PlatformPage() {
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#1E88E5]/10 text-[#1E88E5]">
                   <NetIcon className="h-8 w-8" strokeWidth={1.75} aria-hidden />
                 </div>
-                <div className="text-3xl font-bold text-[#1E88E5] mb-2">{network.count}</div>
+                <div className="text-lg font-bold text-[#1E88E5] mb-2">{network.headline}</div>
                 <div className="font-medium text-[#1A1A1A] mb-1">{network.type}</div>
                 <div className="text-sm text-gray-600">{network.desc}</div>
               </div>

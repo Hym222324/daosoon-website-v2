@@ -20,122 +20,123 @@ export default function AssessmentPage() {
   const [showResult, setShowResult] = useState(false);
 
   const dimensions: { id: string; name: string; icon: LucideIcon }[] = [
-    { id: "strategy", name: "战略", icon: Target },
-    { id: "process", name: "流程", icon: RefreshCw },
-    { id: "supplier", name: "供应商", icon: Handshake },
-    { id: "technology", name: "技术", icon: Laptop },
-    { id: "organization", name: "组织", icon: Users },
+    { id: "strategy", name: "战略与目标", icon: Target },
+    { id: "process", name: "流程与协同", icon: RefreshCw },
+    { id: "supplier", name: "供应与履约网络", icon: Handshake },
+    { id: "technology", name: "数据与系统", icon: Laptop },
+    { id: "organization", name: "组织与变革", icon: Users },
   ];
 
+  /** 能力自测清单（持续迭代，内部别名「Merry」版） */
   const questions = [
     {
       dimension: "strategy",
-      text: "您的供应协同战略是否明确并得到有效执行？",
+      text: "从需求到履约，端到端数智化目标是否在管理层形成共识？",
       options: [
-        { value: 1, label: "完全没有，还在摸索中" },
-        { value: 2, label: "有初步想法但缺乏系统性" },
-        { value: 3, label: "有明确战略并部分落地" },
-        { value: 4, label: "战略清晰，执行良好" },
-        { value: 5, label: "行业领先，持续优化" },
+        { value: 1, label: "无共识，各部各说各话" },
+        { value: 2, label: "有口号，缺少可执行定义" },
+        { value: 3, label: "有关键课题清单，推进不均衡" },
+        { value: 4, label: "目标—指标—Owner 基本闭环" },
+        { value: 5, label: "定期复盘，目标随业务动态校准" },
       ],
     },
     {
       dimension: "strategy",
-      text: "您的 AI 或自动化在供应链中的投入占比？",
+      text: "投资与项目优先级是否服从\"端到端总体最优\"而不是局部 KPI？",
       options: [
-        { value: 1, label: "几乎为零" },
-        { value: 2, label: "1-5%" },
-        { value: 3, label: "5-10%" },
-        { value: 4, label: "10-20%" },
-        { value: 5, label: "20% 以上" },
+        { value: 1, label: "明显各自为政" },
+        { value: 2, label: "偶尔争论，缺少裁决机制" },
+        { value: 3, label: "有联席决策但不稳定" },
+        { value: 4, label: "多数冲突能上升到正确层级解决" },
+        { value: 5, label: "已形成稳态的权衡与仲裁机制" },
       ],
     },
     {
       dimension: "process",
-      text: "您的采购流程标准化程度如何？",
+      text: "S&OP / MPS 与采购、生产、配送的主干流程衔接是否顺畅？",
       options: [
-        { value: 1, label: "完全依赖人工，无标准化" },
-        { value: 2, label: "部分流程标准化" },
-        { value: 3, label: "主要流程已标准化" },
-        { value: 4, label: "全流程标准化" },
-        { value: 5, label: "全流程优化并自动化" },
+        { value: 1, label: "大量人工传递与突击" },
+        { value: 2, label: "主干有流程，断点多" },
+        { value: 3, label: "主要断点可列举并在修补" },
+        { value: 4, label: "主干流程基本数字化可追溯" },
+        { value: 5, label: "节拍稳定，例外可度量、可复盘" },
       ],
     },
     {
       dimension: "process",
-      text: "供应商协作的实时性和透明度如何？",
+      text: "跨部门、跨企业的异常升级是否在 SLA 内有明确 owner？",
       options: [
-        { value: 1, label: "主要通过邮件/电话，无透明度" },
-        { value: 2, label: "部分在线协作" },
-        { value: 3, label: "有供应商门户，实时性一般" },
-        { value: 4, label: "实时协作，信息透明" },
-        { value: 5, label: "完全自动化，智能协同" },
+        { value: 1, label: "无 SLA，靠个人刷脸" },
+        { value: 2, label: "有零散约定" },
+        { value: 3, label: "关键场景有升级路径" },
+        { value: 4, label: "多数异常可走标准升级" },
+        { value: 5, label: "升级—复盘—流程固化闭环" },
       ],
     },
     {
       dimension: "supplier",
-      text: "您的供应商管理覆盖哪些维度？",
+      text: "供应商、外协与物流资源是否纳入统一的协同与绩效视图？",
       options: [
-        { value: 1, label: "仅价格管理" },
-        { value: 2, label: "价格 + 质量" },
-        { value: 3, label: "价格 + 质量 + 交付" },
-        { value: 4, label: "多维度综合评估" },
-        { value: 5, label: "全生命周期智能管理" },
+        { value: 1, label: "分散管理，难以全景查看" },
+        { value: 2, label: "部分环节在线" },
+        { value: 3, label: "关键伙伴有协同，但不完整" },
+        { value: 4, label: "主要伙伴实现计划与执行协同" },
+        { value: 5, label: "网络级可见、可调优" },
       ],
     },
     {
       dimension: "supplier",
-      text: "供应商准入和绩效评估的频率？",
+      text: "从寻源、合同到交付、对账的供应侧规则是否可执行、可审计？",
       options: [
-        { value: 1, label: "不定期，临时评估" },
-        { value: 2, label: "每年一次" },
-        { value: 3, label: "每季度一次" },
-        { value: 4, label: "每月跟踪" },
-        { value: 5, label: "实时监控，持续评估" },
+        { value: 1, label: "大量灰度与口头约定" },
+        { value: 2, label: "规则有文档，执行偏差大" },
+        { value: 3, label: "主要规则已系统化" },
+        { value: 4, label: "例外可追踪，审计压力可控" },
+        { value: 5, label: "持续优化条款与执行一致性" },
       ],
     },
     {
       dimension: "technology",
-      text: "您使用的供应管理系统类型？",
+      text: "主数据（物料、BOM、工艺、供应商等）质量是否支撑端到端应用？",
       options: [
-        { value: 1, label: "Excel/手工管理" },
-        { value: 2, label: "传统 ERP 基础模块" },
-        { value: 3, label: "专业 SRM 系统" },
-        { value: 4, label: "SRM+AI 增强" },
-        { value: 5, label: "AI 原生平台" },
+        { value: 1, label: "混乱，频繁救火" },
+        { value: 2, label: "局部可信，全局不敢用" },
+        { value: 3, label: "治理项目在推进" },
+        { value: 4, label: "主干数据基本可信" },
+        { value: 5, label: "有责任矩阵与持续监测" },
       ],
     },
     {
       dimension: "technology",
-      text: "数据分析和决策支持的智能化程度？",
+      text: "计划层、执行层系统与现场 OT 数据是否能拼成关键链条？",
       options: [
-        { value: 1, label: "无数据分析" },
-        { value: 2, label: "基础报表" },
-        { value: 3, label: "BI 分析工具" },
-        { value: 4, label: "预测分析" },
-        { value: 5, label: "AI 智能决策" },
+        { value: 1, label: "系统孤岛，拼装困难" },
+        { value: 2, label: "有接口但脆弱" },
+        { value: 3, label: "关键链路已拉通" },
+        { value: 4, label: "多数场景可端到端追溯" },
+        { value: 5, label: "架构可持续演进" },
       ],
     },
     {
       dimension: "organization",
-      text: "您的供应协同团队配置？",
+      text: "是否存在端到端链路牵头角色（而不仅是职能经理）？",
       options: [
-        { value: 1, label: "无人负责，兼职管理" },
-        { value: 2, label: "小团队管理" },
-        { value: 3, label: "专业部门" },
-        { value: 4, label: "专业团队 + 专家支持" },
-        { value: 5, label: "跨部门虚拟组织 +AI 辅助" },
+        { value: 1, label: "无，完全职能切分" },
+        { value: 2, label: "有临时项目组" },
+        { value: 3, label: "关键链路有兼职 Owner" },
+        { value: 4, label: "制度化牵头 + 授权清晰" },
+        { value: 5, label: "与激励绑定，可持续" },
       ],
     },
     {
       dimension: "organization",
-      text: "员工的数字化能力和 AI 接受度？",
+      text: "变革沟通、培训与运营托管是否跟得上系统上线节奏？",
       options: [
-        { value: 1, label: "数字化能力弱，抵触新技术" },
-        { value: 2, label: "部分员工有基础" },
-        { value: 3, label: "大多数员工能适应" },
-        { value: 4, label: "数字化能力强" },
-        { value: 5, label: "全员数字精英，主动创新" },
+        { value: 1, label: "上线即失控" },
+        { value: 2, label: "突击培训，效果不稳" },
+        { value: 3, label: "有基础培训与 FAQ" },
+        { value: 4, label: "分层赋能 + 现场辅导" },
+        { value: 5, label: "内化运营能力，减少外部依赖" },
       ],
     },
   ];
@@ -175,29 +176,29 @@ export default function AssessmentPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h1 className="text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-6">
-                供应协同健康度<span className="text-[#1E88E5]">测评</span>
+                端到端供应链能力<span className="text-[#1E88E5]">自测</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                您的供应协同能力目前处于什么水平？
+                从战略、流程、供应网络、数据与技术到组织变革，快速对照贵司成熟度高。
                 <br />
-                <strong>5 分钟测评，10 分钟获取专属诊断报告和改善建议</strong>
+                <strong>清单式自测（Merry 版），结果仅供参考，欢迎结合现场诊断</strong>
               </p>
 
               {!showResult && (
-                <div className="mt-8 inline-flex items-center bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-[#1E88E5] mb-1">5 大维度</div>
-                    <div className="text-sm text-gray-500">战略 / 流程 / 供应商 / 技术 / 组织</div>
+                <div className="mt-8 inline-flex flex-col sm:flex-row items-center bg-white rounded-xl p-6 shadow-lg gap-4 sm:gap-0">
+                  <div className="text-center px-4">
+                    <div className="text-4xl font-bold text-[#1E88E5] mb-1">5</div>
+                    <div className="text-sm text-gray-500">大维度</div>
                   </div>
-                  <div className="mx-6 text-gray-300">|</div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-[#1E88E5] mb-1">15 道题</div>
-                    <div className="text-sm text-gray-500">专业测评 +AI 分析</div>
+                  <div className="hidden sm:block mx-6 text-gray-300">|</div>
+                  <div className="text-center px-4">
+                    <div className="text-4xl font-bold text-[#1E88E5] mb-1">10</div>
+                    <div className="text-sm text-gray-500">道情境题</div>
                   </div>
-                  <div className="mx-6 text-gray-300">|</div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-[#1E88E5] mb-1">10 分钟</div>
-                    <div className="text-sm text-gray-500">获取专属报告</div>
+                  <div className="hidden sm:block mx-6 text-gray-300">|</div>
+                  <div className="text-center px-4">
+                    <div className="text-4xl font-bold text-[#1E88E5] mb-1">≈5 分钟</div>
+                    <div className="text-sm text-gray-500">完成填写</div>
                   </div>
                 </div>
               )}

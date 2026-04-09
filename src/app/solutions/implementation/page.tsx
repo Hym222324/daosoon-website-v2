@@ -135,19 +135,10 @@ export default function ImplementationPage() {
     { step: "7", title: "持续支持", desc: "运维优化服务" },
   ];
 
-  const partners = [
-    { name: "SAP", logo: "SAP" },
-    { name: "Oracle", logo: "Oracle" },
-    { name: "用友", logo: "用友" },
-    { name: "金蝶", logo: "金蝶" },
-    { name: "西门子", logo: "西门子" },
-    { name: "华为云", logo: "华为云" },
-  ];
-
   return (
     <SolutionTemplate
-      pageTitle="供应协同实施服务"
-      pageDescription="专业 APS/ERP/MOM、WMS/TMS 实施及项目管理服务"
+      pageTitle="供应链端到端实施服务"
+      pageDescription="APS / ERP / SRM / MOM、WMS / TMS 等系统的选型、集成与项目管理"
       mainIcon={<Wrench className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="专业"
     >
@@ -234,34 +225,6 @@ export default function ImplementationPage() {
               </div>
             );
             })}
-          </div>
-        </div>
-      </div>
-
-      {/* Partners */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#1A1A1A] rounded-2xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">合作伙伴</h3>
-          <p className="text-gray-400 mb-6">
-            我们的实施经验涵盖国内外主流供应商
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {partners.map((partner, index) => (
-              <div
-                key={index}
-                className="bg-white/10 rounded-lg p-4 text-center hover:bg-white/20 transition-colors"
-              >
-                <div className="text-lg font-medium">{partner.name}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 pt-6 border-t border-gray-700">
-            <p className="text-gray-400 text-sm">
-              <span className="text-gray-500">我们的实施经验：</span>
-              {partners.map((p) => p.name).join(" . ")}
-            </p>
           </div>
         </div>
       </div>

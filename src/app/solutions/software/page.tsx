@@ -114,10 +114,9 @@ export default function SoftwarePage() {
         "支出优化建议",
       ],
       benefits: [
-        "识别降本机会 +50%",
-        "采购成本降低 10-20%",
-        "支出透明度 100%",
-        "ROI 实现周期 6 个月",
+        "成本结构更清晰",
+        "支出可视、可对账",
+        "支撑专题复盘与决策",
       ],
     },
     {
@@ -143,15 +142,15 @@ export default function SoftwarePage() {
 
   return (
     <SolutionTemplate
-      pageTitle="供应协同 SaaS 产品"
-      pageDescription="自主研发的 AI 驱动供应协同平台，开箱即用，快速见效"
+      pageTitle="自研软件产品"
+      pageDescription="供应链协同与数字化工具，方法论沉淀为可配置能力"
       mainIcon={<Monitor className="size-14" strokeWidth={1.65} aria-hidden />}
       badge="新品"
     >
-      {/* SaaS Benefits */}
+      {/* Product principles */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-          为什么选择我们的 SaaS 产品？
+          产品原则
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -159,22 +158,22 @@ export default function SoftwarePage() {
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
               <Rocket className="h-7 w-7 text-white" strokeWidth={1.75} aria-hidden />
             </div>
-            <h3 className="text-xl font-bold mb-2">快速部署</h3>
-            <p className="text-blue-100">无需安装，3 个月快速上线，6 周完成核心功能部署</p>
+            <h3 className="text-xl font-bold mb-2">贴近业务现场</h3>
+            <p className="text-blue-100">从计划到履约的流程语言设计，而不是脱离场景的功能堆砌。</p>
           </div>
           <div className="bg-gradient-to-br from-[#9C27B0] to-[#7B1FA2] rounded-xl p-6 text-white">
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
               <Bot className="h-7 w-7 text-white" strokeWidth={1.75} aria-hidden />
             </div>
-            <h3 className="text-xl font-bold mb-2">AI 驱动</h3>
-            <p className="text-purple-100">预训练 AI 模型，开箱即用，持续优化算法</p>
+            <h3 className="text-xl font-bold mb-2">可组合、可演进</h3>
+            <p className="text-purple-100">能力模块化，随企业成熟度分阶段启用与扩展。</p>
           </div>
           <div className="bg-gradient-to-br from-[#FF9800] to-[#F57C00] rounded-xl p-6 text-white">
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
               <Lightbulb className="h-7 w-7 text-white" strokeWidth={1.75} aria-hidden />
             </div>
-            <h3 className="text-xl font-bold mb-2">性价比高</h3>
-            <p className="text-orange-100">SaaS 订阅模式，降低前期投入，ROI 实现周期 6 个月</p>
+            <h3 className="text-xl font-bold mb-2">与实施服务互补</h3>
+            <p className="text-orange-100">工具与咨询、实施联动，保证「能用、好用、有人用」。</p>
           </div>
         </div>
 
@@ -237,94 +236,17 @@ export default function SoftwarePage() {
         </div>
       </div>
 
-      {/* Pricing Model */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-            灵活的订阅模式
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow text-center">
-              <div className="text-lg text-gray-600 mb-2">标准版</div>
-              <div className="text-3xl font-bold text-[#1A1A1A] mb-4">基础功能</div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• 供应商门户</li>
-                <li>• 基础采购协同</li>
-                <li>• 订单管理</li>
-                <li>• 基础报表</li>
-                <li>• 标准支持</li>
-              </ul>
-              <Link
-                href="/connect"
-                className="mt-6 inline-block bg-[#1E88E5] text-white px-6 py-2 rounded-lg"
-              >
-                了解价格
-              </Link>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow text-center border-2 border-[#1E88E5] relative">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1E88E5] text-white px-4 py-1 rounded-full text-sm">
-                最受欢迎
-              </div>
-              <div className="text-lg text-gray-600 mb-2">专业版</div>
-              <div className="text-3xl font-bold text-[#1A1A1A] mb-4">AI 增强</div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• 标准版所有功能</li>
-                <li>• 智能寻源引擎</li>
-                <li>• AI 供应计划</li>
-                <li>• 供应商绩效</li>
-                <li>• 成本分析</li>
-                <li>• 优先支持</li>
-              </ul>
-              <Link
-                href="/connect"
-                className="mt-6 inline-block bg-[#FF9800] text-white px-6 py-2 rounded-lg"
-              >
-                了解价格
-              </Link>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow text-center">
-              <div className="text-lg text-gray-600 mb-2">企业版</div>
-              <div className="text-3xl font-bold text-[#1A1A1A] mb-4">完整能力</div>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• 专业版所有功能</li>
-                <li>• 定制开发</li>
-                <li>• 私有化部署</li>
-                <li>• 专属支持</li>
-                <li>• SLA 保障</li>
-              </ul>
-              <Link
-                href="/connect"
-                className="mt-6 inline-block bg-[#1E88E5] text-white px-6 py-2 rounded-lg"
-              >
-                联系定制
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ROI */}
       <div className="bg-[#1E88E5] py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
-            <div>
-              <div className="text-4xl font-bold mb-2">6 个月</div>
-              <div className="text-blue-100">ROI 实现周期</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">-15%</div>
-              <div className="text-blue-100">采购成本</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">40%</div>
-              <div className="text-blue-100">库存周转提升</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">3 个月</div>
-              <div className="text-blue-100">快速上线</div>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <p className="text-lg text-blue-50 mb-6">
+            合作模式与报价随企业场景而定，不做「一刀切」的数字承诺；欢迎预约沟通，明确范围与里程碑。
+          </p>
+          <Link
+            href="/connect"
+            className="inline-flex items-center bg-white text-[#1E88E5] px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+          >
+            预约沟通
+          </Link>
         </div>
       </div>
     </SolutionTemplate>
