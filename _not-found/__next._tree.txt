@@ -1,3 +1,3 @@
 :HL["/daosoon-website-v2/_next/static/chunks/0t~obwh_-nh3t.css","style"]
-:HL["/daosoon-website-v2/_next/static/chunks/003dyaudi33of.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"V-8SH8Td6gD07gqUhpmJu"}
+:HL["/daosoon-website-v2/_next/static/chunks/0ejadc9-9vsat.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"jfY90MwnkxOyMLJGajVCd"}
