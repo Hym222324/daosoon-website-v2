@@ -1,19 +1,26 @@
 import Link from "next/link";
+import DaosoonWordmark from "@/components/brand/DaosoonWordmark";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A1A] text-gray-400 py-12 px-4 border-t border-white/10">
-      <div className="max-w-7xl mx-auto">
+    <footer
+      className="relative overflow-hidden text-gray-300 py-12 px-4 border-t border-white/10"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-[#0c1320]/52" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0c1320]/38 via-[#0c1320]/48 to-[#0c1320]/62" aria-hidden />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#1E88E5] to-[#9C27B0] rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <span className="font-bold text-white text-lg">Daosoon</span>
+            <div className="mb-4">
+              <DaosoonWordmark theme="dark" />
             </div>
             <p className="text-sm">道生数智科技（苏州）有限公司</p>
             <p className="text-sm mt-2">端到端供应链 AI 应用服务商</p>

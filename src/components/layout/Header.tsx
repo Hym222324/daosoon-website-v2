@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import DaosoonWordmark from "@/components/brand/DaosoonWordmark";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,15 +22,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#1E88E5] to-[#9C27B0] rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div className="flex items-baseline">
-              <span className="font-bold text-xl">Daosoon</span>
-              <span className="text-[#666666] font-normal text-sm ml-2">道生数智</span>
-            </div>
+            <DaosoonWordmark />
           </Link>
 
           {/* Desktop Navigation */}

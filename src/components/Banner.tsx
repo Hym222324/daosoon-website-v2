@@ -31,8 +31,11 @@ const connectCards = [
 
 export default function Banner() {
   return (
-    <section id="connect" className="section-spacing bg-[#1A1A1A] text-white">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="connect"
+      className="section-spacing relative overflow-hidden text-[#1A1A1A] bg-[#EAF4FF]"
+    >
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             连接道生，共创数智供应链
@@ -43,10 +46,10 @@ export default function Banner() {
           {connectCards.map((card) => (
             <div
               key={card.title}
-              className="bg-white/5 p-6 rounded-xl card-hover cursor-pointer border border-white/10"
+              className="bg-white/90 p-6 rounded-xl card-hover cursor-pointer border border-[#D5E7FB] shadow-sm"
             >
               <h3 className="font-bold text-xl mb-2">{card.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">{card.subtitle}</p>
+              <p className="text-[#5B6473] text-sm mb-4">{card.subtitle}</p>
               <Link
                 href="/connect"
                 className="block bg-[#FF9800] text-white text-center px-6 py-2 rounded-lg font-medium hover:bg-[#F57C00] transition-all mb-2"
@@ -55,7 +58,7 @@ export default function Banner() {
               </Link>
               <Link
                 href="/connect"
-                className="block text-gray-400 text-sm text-center hover:text-white transition-colors"
+                className="block text-[#5B6473] text-sm text-center hover:text-[#1A1A1A] transition-colors"
               >
                 {card.secondary}
               </Link>
