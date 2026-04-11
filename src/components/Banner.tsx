@@ -1,35 +1,45 @@
 "use client";
 
 import Link from "next/link";
-
-const connectCards = [
-  {
-    title: "业务咨询",
-    subtitle: "让供应链更智能",
-    primary: "预约演示",
-    secondary: "下载解决方案手册",
-  },
-  {
-    title: "加入团队",
-    subtitle: "加入道生，一起创造价值",
-    primary: "查看热招职位",
-    secondary: "提交简历",
-  },
-  {
-    title: "生态合作",
-    subtitle: "成为生态伙伴",
-    primary: "申请合作",
-    secondary: "API 接入申请",
-  },
-  {
-    title: "参与社区",
-    subtitle: "供应链人的聚集地",
-    primary: "前往论坛",
-    secondary: "预约下次公开课",
-  },
-];
+import { useMemo } from "react";
+import { useSiteLocale } from "@/contexts/LocaleContext";
+import { T } from "@/i18n/core";
+import { bannerSection as b } from "@/i18n/home";
 
 export default function Banner() {
+  const { locale } = useSiteLocale();
+  const t = (key: keyof typeof b) => T(locale, b[key]);
+
+  const connectCards = useMemo(
+    () => [
+      {
+        title: t("card1Title"),
+        subtitle: t("card1Sub"),
+        primary: t("card1Primary"),
+        secondary: t("card1Secondary"),
+      },
+      {
+        title: t("card2Title"),
+        subtitle: t("card2Sub"),
+        primary: t("card2Primary"),
+        secondary: t("card2Secondary"),
+      },
+      {
+        title: t("card3Title"),
+        subtitle: t("card3Sub"),
+        primary: t("card3Primary"),
+        secondary: t("card3Secondary"),
+      },
+      {
+        title: t("card4Title"),
+        subtitle: t("card4Sub"),
+        primary: t("card4Primary"),
+        secondary: t("card4Secondary"),
+      },
+    ],
+    [locale],
+  );
+
   return (
     <section
       id="connect"
@@ -37,9 +47,7 @@ export default function Banner() {
     >
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            连接道生，共创数智供应链
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

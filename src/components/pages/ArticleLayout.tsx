@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 type Crumb = { label: string; href: string };
@@ -19,7 +18,6 @@ export default function ArticleLayout({
 }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         <section
           className={

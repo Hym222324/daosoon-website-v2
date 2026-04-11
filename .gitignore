@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# local agent / scratch
+.omx/
+.tmp/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

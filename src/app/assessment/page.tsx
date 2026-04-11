@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useState } from "react";
 import {
@@ -12,7 +11,6 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
-import { metadata } from "./metadata";
 
 export default function AssessmentPage() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -168,8 +166,6 @@ export default function AssessmentPage() {
 
   return (
     <div className="min-h-screen">
-      <Header />
-
       <main className="bg-gradient-to-br from-[#F0F4F8] to-[#FFFFFF]">
         {/* Hero Section */}
         <section className="py-20">

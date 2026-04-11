@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_SC, Inter } from "next/font/google";
+import TopChromeProvider from "@/components/layout/TopChromeProvider";
+import { AppProviders } from "@/components/providers/AppProviders";
 import "./globals.css";
 
 const notoSansSC = Noto_Sans_SC({
@@ -42,7 +44,9 @@ export default function RootLayout({
       <body
         className={`${notoSansSC.variable} ${inter.variable} min-h-full flex flex-col`}
       >
-        {children}
+        <AppProviders>
+          <TopChromeProvider>{children}</TopChromeProvider>
+        </AppProviders>
       </body>
     </html>
   );

@@ -1,0 +1,65 @@
+import type { Bilingual } from "./core";
+
+export const connectPage = {
+  heroTitle: { zh: "连接道生，共创数智供应链", en: "Connect with Daosoon, build a digital supply chain together" },
+  heroSub: {
+    zh: "按 PRD：企业决策者、求职者、生态伙伴与社区用户可分别通过下方入口留资或跳转。",
+    en: "Executives, candidates, partners, and community members can use the sections below to reach us.",
+  },
+  navBiz: { zh: "业务咨询", en: "Business" },
+  navCareers: { zh: "加入团队", en: "Careers" },
+  navPartner: { zh: "生态合作", en: "Partners" },
+  navCommunity: { zh: "参与社区", en: "Community" },
+  bizTitle: { zh: "业务咨询", en: "Business inquiry" },
+  bizIntro: {
+    zh: "预约演示或下载解决方案手册。表单字段对齐 PRD：姓名、公司、手机、邮箱（可扩展需求简述）。",
+    en: "Request a demo or download the solution brief. Fields: name, company, phone, email (optional note).",
+  },
+  phName: { zh: "姓名", en: "Name" },
+  phCompany: { zh: "公司", en: "Company" },
+  phPhone: { zh: "手机", en: "Phone" },
+  phEmail: { zh: "邮箱", en: "Email" },
+  phNote: { zh: "需求简述（可选）", en: "Requirements (optional)" },
+  btnDemo: { zh: "预约演示", en: "Book demo" },
+  btnDownload: { zh: "下载解决方案手册", en: "Download brief" },
+  alertDemoOk: {
+    zh: "感谢提交预约演示信息。正式环境将对接 CRM / 邮件与短信。",
+    en: "Thank you. Production will connect to CRM / email / SMS.",
+  },
+  alertDownload: {
+    zh: "解决方案手册下载将在对接内容分发后开放，可先留资预约。",
+    en: "Download will open once CDN is wired; please leave your details first.",
+  },
+  careersTitle: { zh: "加入团队", en: "Careers" },
+  careersIntro: {
+    zh: "热招职位示例：后端开发、供应链顾问、实施顾问、产品经理（具体以实际招聘为准）。",
+    en: "Sample roles: backend, supply chain consultant, implementation, PM (subject to actual openings).",
+  },
+  job1: { zh: "供应链数字化实施顾问", en: "Supply chain digital implementation consultant" },
+  job2: { zh: "后端开发工程师（Java / Go）", en: "Backend engineer (Java / Go)" },
+  job3: { zh: "产品经理（B 端 SaaS）", en: "Product manager (B2B SaaS)" },
+  phPosition: { zh: "意向职位", en: "Target role" },
+  btnResume: { zh: "提交简历", en: "Submit resume" },
+  alertGeneric: {
+    zh: "感谢提交。我们的同事将在工作日与您联系。",
+    en: "Thank you. Our team will reach out on business days.",
+  },
+  partnerTitle: { zh: "生态合作", en: "Partnership" },
+  partnerIntro: {
+    zh: "软件厂商、集成商、行业协会与产业伙伴的合作申请与 API 接入意向收集。",
+    en: "For ISVs, integrators, associations, and ecosystem partners—including API interest.",
+  },
+  phOrg: { zh: "机构 / 公司名称", en: "Organization" },
+  phContact: { zh: "联系人", en: "Contact person" },
+  phCoop: { zh: "合作诉求 / API 场景", en: "Partnership goals / API use case" },
+  btnPartner: { zh: "申请合作", en: "Apply" },
+  btnApi: { zh: "API 接入说明", en: "API overview" },
+  alertApi: { zh: "API 文档将在开放平台就绪后提供链接。", en: "API docs link will be published with the developer portal." },
+  communityTitle: { zh: "参与社区", en: "Community" },
+  communityIntro: {
+    zh: "预约下次公开课、加入论坛讨论。正式排期与报名将在社区后台配置。",
+    en: "Webinars and forum sign-ups will be managed in the community back office.",
+  },
+  btnForum: { zh: "前往论坛", en: "Forum" },
+  btnResources: { zh: "资源与公开课", en: "Resources & webinars" },
+} as const satisfies Record<string, Bilingual>;

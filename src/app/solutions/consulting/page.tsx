@@ -1,8 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import SolutionTemplate from "@/components/solutions/SolutionTemplate";
-import { useState } from "react";
+import { useSiteLocale } from "@/contexts/LocaleContext";
+import { consultingStrings } from "@/i18n/solution-consulting";
+import { solutionsHub } from "@/i18n/solutionsHub";
+import { T } from "@/i18n/core";
 import {
   BarChart3,
   ClipboardList,
@@ -11,128 +13,33 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+const capabilityIcons: LucideIcon[] = [Target, ClipboardList, UserRound, BarChart3];
+
 export default function ConsultingPage() {
-  const [activeTab, setActiveTab] = useState("overview");
-
-  const services = [
-    {
-      title: "业务诊断与规划",
-      description: "深入分析企业供应链现状，识别关键痛点，制定科学改进路线图",
-      features: [
-        "供应链流程诊断与审计",
-        "行业对标分析",
-        "数字化转型规划",
-        "ROI 预测与价值评估",
-      ],
-    },
-    {
-      title: "体系建设与优化",
-      description: "建立标准化、规范化的供应链管理体系，提升运营效率",
-      features: [
-        "供应商管理体系建设",
-        "采购流程标准化",
-        "绩效考核体系设计",
-        "风险控制机制建立",
-      ],
-    },
-    {
-      title: "实施辅导与落地",
-      description: "全程陪伴式辅导，确保方案有效落地执行",
-      features: [
-        "项目管理和指导",
-        "关键用户培训",
-        "变革管理支持",
-        "持续优化建议",
-      ],
-    },
-    {
-      title: "AI 应用咨询",
-      description: "结合 AI 技术，提供智能化转型咨询与实施指导",
-      features: [
-        "AI 应用场景规划",
-        "技术选型建议",
-        "数据治理方案",
-        "AI 模型应用指导",
-      ],
-    },
-  ];
-
-  const capabilities: {
-    icon: LucideIcon;
-    title: string;
-    description: string;
-  }[] = [
-    {
-      icon: Target,
-      title: "精准诊断",
-      description: "500+ 项指标评估，全面识别问题",
-    },
-    {
-      icon: ClipboardList,
-      title: "标准化框架",
-      description: "成熟的咨询服务方法论",
-    },
-    {
-      icon: UserRound,
-      title: "资深团队",
-      description: "平均 10 年 + 行业经验",
-    },
-    {
-      icon: BarChart3,
-      title: "数据驱动",
-      description: "基于数据的科学决策",
-    },
-  ];
-
-  const useCases = [
-    {
-      industry: "离散制造",
-      challenge: "产品复杂、多 BOM 管理、供应商协同困难",
-      solution: "建立标准化供应协同体系，引入 AI 智能排产和 SRM 协同平台，实现供应效率提升 40%",
-    },
-    {
-      industry: "流程制造",
-      challenge: "配方复杂、质量追溯要求高、供应波动大",
-      solution: "优化供应流程，建立 MES+ 供应链预测体系，质量追溯时间缩短 70%",
-    },
-    {
-      industry: "农业",
-      challenge: "周期长、地域分散、质量标准难统一",
-      solution: "物联网 + 供应链匹配平台，实现全链路可追溯，供应周期缩短 60%",
-    },
-  ];
-
-  const testimonials = [
-    {
-      company: "某上市制造企业",
-      content: "道生数智的咨询团队专业度高，帮助我们梳理了复杂的供应流程，建立了标准化的管理体系，实施 SRM 系统后采购成本降低 20%",
-      role: "供应链总监",
-    },
-    {
-      company: "某大型农业企业",
-      content: "从业务诊断到 AI 应用规划，全程伴随式辅导，让我们成功实现了供应链数字化转型，效果超出预期",
-      role: "CEO",
-    },
-  ];
+  const { locale } = useSiteLocale();
+  const s = consultingStrings(locale);
+  const services = s.services;
+  const capabilities = s.capabilities.map((c, i) => ({
+    ...c,
+    icon: capabilityIcons[i]!,
+  }));
+  const useCases = s.useCases;
+  const testimonials = s.testimonials;
 
   return (
     <SolutionTemplate
-      pageTitle="供应协同咨询"
-      pageDescription="业务梳理、体系建设、业务辅导，助力企业供应链数字化转型"
+      pageTitle={s.pageTitle}
+      pageDescription={s.pageDescription}
       mainIcon={
         <ClipboardList className="size-14" strokeWidth={1.65} aria-hidden />
       }
-      badge="热门"
+      badge={T(locale, solutionsHub.hot)}
     >
       {/* Capabilities */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-[#1A1A1A] mb-4">
-            我们的咨询能力
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            基于 100+ 企业实践，提供端到端的供应链咨询解决方案
-          </p>
+          <h2 className="text-3xl font-bold text-[#1A1A1A] mb-4">{s.capTitle}</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">{s.capSub}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -154,9 +61,7 @@ export default function ConsultingPage() {
       {/* Services */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-            核心咨询服务
-          </h2>
+          <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">{s.coreTitle}</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -190,9 +95,7 @@ export default function ConsultingPage() {
 
       {/* Use Cases */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-          行业应用场景
-        </h2>
+        <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">{s.useCaseTitle}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {useCases.map((useCase, index) => (
@@ -203,7 +106,7 @@ export default function ConsultingPage() {
               <h3 className="font-bold text-[#1A1A1A] mb-4">{useCase.challenge}</h3>
               <div className="space-y-2">
                 <div className="text-sm text-gray-600">
-                  <span className="font-medium">解决方案：</span>
+                  <span className="font-medium">{s.solutionLabel}</span>
                   {useCase.solution}
                 </div>
               </div>
@@ -215,9 +118,7 @@ export default function ConsultingPage() {
       {/* Testimonials */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">
-            客户反馈
-          </h2>
+          <h2 className="text-3xl font-bold text-[#1A1A1A] text-center mb-12">{s.testimonialTitle}</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -230,7 +131,7 @@ export default function ConsultingPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
                 <div className="text-sm text-gray-500">
                   <div className="font-medium text-[#1A1A1A]">{testimonial.company}</div>

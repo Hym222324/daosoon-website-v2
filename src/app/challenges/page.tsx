@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Database, Handshake, Settings, Users, type LucideIcon } from "lucide-react";
 
@@ -113,8 +112,6 @@ export default function ChallengesPage() {
 
   return (
     <div className="min-h-screen">
-      <Header />
-
       <main className="bg-gradient-to-br from-[#F0F4F8] to-[#FFFFFF]">
       <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

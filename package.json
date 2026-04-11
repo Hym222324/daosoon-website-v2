@@ -7,7 +7,9 @@
     "build": "next build",
     "build:gh-pages": "GITHUB_PAGES=true next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "fetch:stitch": "node scripts/fetch-stitch-screen.mjs",
+    "fetch:stitch:proxy": "node scripts/with-proxy-run.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.487.0",
@@ -16,12 +18,14 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@google/stitch-sdk": "^0.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

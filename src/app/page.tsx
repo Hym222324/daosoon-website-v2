@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HomeHero from "@/components/HomeHero";
 import Services from "@/components/Services";
@@ -16,7 +14,6 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Header />
       <main>
         <HomeHero />
         <HowItWorks />

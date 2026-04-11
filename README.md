@@ -21,6 +21,18 @@
 npm run dev
 ```
 
+### 商业网络（BN-MVP / 交易汇）入口
+
+首页与解决方案中的「商业网络平台」在配置了环境变量后会显示 **打开交易汇演示**，新标签页打开独立 BN-MVP 应用。
+
+复制 [`.env.example`](./.env.example) 为 `.env.local`，设置：
+
+```bash
+NEXT_PUBLIC_BN_MVP_URL=http://localhost:3000
+```
+
+将 URL 换成你的 BN 前端实际地址（与官网端口冲突时请为其中一个项目指定 `-p`）。静态导出构建前同样需要该变量，否则生产包中不展示外链按钮。
+
 ## 部署
 
 ```bash
@@ -33,6 +45,8 @@ npm start
 ```bash
 GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/daosoon-website-v2 npm run build
 ```
+
+若需线上展示「打开交易汇演示」，在同一命令前加上 `NEXT_PUBLIC_BN_MVP_URL=https://你的-bn-域名`（完整 `https` URL）。
 
 ## 内容 / 资料后台
 

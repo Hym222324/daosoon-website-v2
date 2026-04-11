@@ -10,6 +10,7 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+import { useSiteLocale } from "@/contexts/LocaleContext";
 import { withBasePath } from "@/lib/public-path";
 
 const SLIDE_MS = 6500;
@@ -21,6 +22,7 @@ export type HeroSlide = {
   titleEn: string;
   titleZh: string;
   caption: string;
+  captionEn: string;
   /** 叠在照片上的色罩（保持品牌感与对比度） */
   gradient: string;
   accent: string;
@@ -34,6 +36,8 @@ export const heroSlides: HeroSlide[] = [
     titleEn: "Connected Customer",
     titleZh: "链接客户",
     caption: "以客户为中心的协同服务与可信体验，贯穿销售、交付与服务全旅程。",
+    captionEn:
+      "Customer-centric collaboration and trusted experiences across sales, delivery, and service.",
     gradient: "from-[#0c1929]/42 via-[#132f4c]/16 to-transparent",
     accent: "#3d9eff",
     Icon: Users,
@@ -44,6 +48,7 @@ export const heroSlides: HeroSlide[] = [
     titleEn: "Product Development",
     titleZh: "产品研发",
     caption: "以产品结构的数据为核心的制造业数字孪生基础。",
+    captionEn: "Product-structure data as the foundation for manufacturing digital twins.",
     gradient: "from-[#0d2137]/42 via-[#153250]/16 to-transparent",
     accent: "#5dcee6",
     Icon: Lightbulb,
@@ -54,6 +59,8 @@ export const heroSlides: HeroSlide[] = [
     titleEn: "Synchronized Planning",
     titleZh: "同步计划",
     caption: "产销协同、排程与供应链控制塔视角下的计划一体化与节拍对齐。",
+    captionEn:
+      "S&OP, scheduling, and control-tower visibility—aligned cadence from plan to execution.",
     gradient: "from-[#0a1f24]/42 via-[#0f3d3e]/16 to-transparent",
     accent: "#4dd9b4",
     Icon: Share2,
@@ -64,6 +71,8 @@ export const heroSlides: HeroSlide[] = [
     titleEn: "Intelligent Supply",
     titleZh: "智慧供应",
     caption: "战略寻源与执行闭环一致，供应网络透明、可编排、可度量。",
+    captionEn:
+      "Strategic sourcing and execution in one loop—transparent, orchestratable, measurable supply networks.",
     gradient: "from-[#1a0f08]/45 via-[#3d2410]/18 to-transparent",
     accent: "#f0a050",
     Icon: Boxes,
@@ -74,6 +83,8 @@ export const heroSlides: HeroSlide[] = [
     titleEn: "Smart Operations",
     titleZh: "智能制造",
     caption: "更大场面的工厂自动化车间全景，展示产线协同、设备互联与实时可视化运营。",
+    captionEn:
+      "Shop-floor scale automation—line coordination, connected equipment, and real-time operational visibility.",
     gradient: "from-[#0f1419]/45 via-[#1c2832]/18 to-transparent",
     accent: "#8ab4dc",
     Icon: Cpu,
@@ -84,6 +95,8 @@ export const heroSlides: HeroSlide[] = [
     titleEn: "Dynamic Fulfillment",
     titleZh: "动态履约",
     caption: "动态履约以轮船运输为核心场景，联动港口、仓储与在途可视化，保障交付时效与稳定性。",
+    captionEn:
+      "Dynamic fulfillment with ocean freight—ports, warehouses, and in-transit visibility for reliable delivery.",
     gradient: "from-[#071a12]/45 via-[#0f3d28]/18 to-transparent",
     accent: "#6dcea0",
     Icon: Truck,
@@ -95,6 +108,7 @@ function slideImageSrc(filename: string) {
 }
 
 export default function HeroCarousel() {
+  const { locale } = useSiteLocale();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -111,6 +125,8 @@ export default function HeroCarousel() {
       {heroSlides.map((s, i) => {
         const Icon = s.Icon;
         const active = i === index;
+        const slideTitle = locale === "en" ? s.titleEn : s.titleZh;
+        const slideCaption = locale === "en" ? s.captionEn : s.caption;
         return (
           <div
             key={s.id}
@@ -173,10 +189,10 @@ export default function HeroCarousel() {
                       {s.titleEn}
                     </p>
                     <h2 className="hero-font-highlight mt-1 text-xl font-bold tracking-tight md:text-2xl">
-                      {s.titleZh}
+                      {slideTitle}
                     </h2>
                     <p className="hero-font-highlight-soft mt-2 max-w-2xl text-sm leading-relaxed md:text-base">
-                      {s.caption}
+                      {slideCaption}
                     </p>
                   </div>
                 </div>
@@ -204,7 +220,11 @@ export default function HeroCarousel() {
             className={`h-1.5 rounded-full transition-all ${
               i === index ? "w-10 bg-white" : "w-1.5 bg-white/35 hover:bg-white/60"
             }`}
-            aria-label={`切换到第 ${i + 1} 张：${heroSlides[i].titleZh}`}
+            aria-label={
+              locale === "zh"
+                ? `切换到第 ${i + 1} 张：${heroSlides[i].titleZh}`
+                : `Go to slide ${i + 1}: ${heroSlides[i].titleEn}`
+            }
           />
         ))}
       </div>
