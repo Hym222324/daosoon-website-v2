@@ -1,0 +1,44 @@
+<svg width="760" height="180" viewBox="0 0 760 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sc-ai-cyan" x1="20" y1="126" x2="144" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14D8D4" />
+      <stop offset="1" stop-color="#68F2EC" />
+    </linearGradient>
+    <linearGradient id="sc-ai-blue" x1="24" y1="134" x2="122" y2="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F1C72" />
+      <stop offset="1" stop-color="#283DB8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Mark: hexagon + AiSC -->
+  <g transform="translate(10,10)">
+    <!-- outer hexagon -->
+    <path d="M70 12L20 42V104L70 134L120 104V42L70 12Z" fill="white" stroke="#405066" stroke-width="8" stroke-linejoin="round"/>
+    <!-- inner glowing hex -->
+    <path d="M70 28L34 50V96L70 118L106 96V50L70 28Z" fill="none" stroke="url(#sc-ai-cyan)" stroke-width="4" stroke-linejoin="round" opacity="0.9"/>
+    <!-- small connector lines -->
+    <path d="M20 42L33 50M120 42L106 50M20 104L34 96M120 104L106 96M70 12V28M70 134V118" stroke="#7A8BA2" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- AiSC lettering in mark -->
+    <text x="43" y="66" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="url(#sc-ai-blue)">Ai</text>
+    <text x="42" y="93" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#3E5168">SC</text>
+
+    <!-- network nodes -->
+    <circle cx="20" cy="42" r="6.5" fill="#283DB8"/>
+    <circle cx="70" cy="12" r="6.5" fill="#283DB8"/>
+    <circle cx="120" cy="42" r="6.5" fill="#14D8D4"/>
+    <circle cx="120" cy="104" r="6.5" fill="#14D8D4"/>
+    <circle cx="70" cy="134" r="6.5" fill="#6B7E95"/>
+    <circle cx="20" cy="104" r="6.5" fill="#6B7E95"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(190,58)">
+    <text x="0" y="48" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="0.5" fill="#1B2A8D">
+      Daosoon
+    </text>
+    <text x="4" y="98" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif" font-size="36" font-weight="600" letter-spacing="2.5" fill="#5E7087">
+      道生数智
+    </text>
+  </g>
+</svg>
